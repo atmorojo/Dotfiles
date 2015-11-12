@@ -331,4 +331,3 @@ fi
 #vimhelp ()    { vim -c "help $1" -c on -c "au! VimEnter *" }
 
 ## END OF FILE #################################################################
-prompt adam2

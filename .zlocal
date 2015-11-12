@@ -1,4 +1,12 @@
+PROMPT="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
+RPROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_no_bold[yellow]%}%1~ %{$reset_color%}%#"
+
 source $HOME/.dotfiles/aliases
-PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+
+PATH="$(ruby -e 'print Gem.user_dir')/bin:/home/atmorojo/.composer/vendor/bin:$PATH"
 
 stty -ixon
+
+bindkey -v
+
+SAL_USE_VCLPLUGIN=gtk

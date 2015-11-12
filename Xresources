@@ -1,22 +1,32 @@
 ! Colors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#include "colors/smear"
+#include "colors/Tomorrow-Night"
 
 ! Xft settings ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Xft.dpi:        96
+xft.autohint:   0
+Xft.dpi:        118
 Xft.antialias:  true
 Xft.rgba:       rgb
 Xft.hinting:    true
 Xft.hintstyle:  hintslight
+xft.lcdfileter: lcddefault
 
 ! Fonts ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-URxvt*font:                             -*-profont-medium-r-normal-*-12-*-*-*-*-*-*-*, xft:Terminess Powerline:pixelsize=10
-! URxvt*boldFont:                       fontname
+! URxvt.font:                             -*-profont-medium-r-normal-*-15-*-72-72-c-70-*-1
+URxvt.font:                             xft:source code pro:pixelsize=12:antialias=true
+URxvt.boldFont:                         xft:source code pro:bold:pixelsize=12:antialias=true
 ! URxvt*italicFont:                     fontname
 ! URxvt*boldItalicFont:                 fontname
+URxvt.letterSpace:                      -2
 
 URxvt*scrollBar:                        False
 URxvt*cursorUnderline:                  True
 URxvt*cursorBlink:                      True
+
+! URxvt*perl-ext-common:                  string
+URxvt.perl-ext-common: default,url-select
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true
 
 ! URxvt*termName:                       string
 ! URxvt*geometry:                       geometry
@@ -92,7 +102,6 @@ URxvt*cursorBlink:                      True
 ! URxvt*secondaryScroll:                boolean
 ! URxvt*perl-lib:                       string
 ! URxvt*perl-eval:                      perl-eval
-! URxvt*perl-ext-common:                string
 ! URxvt*perl-ext:                       string
 ! URxvt*iso14755:                       boolean
 ! URxvt*iso14755_52:                    boolean
