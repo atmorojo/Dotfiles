@@ -1,21 +1,15 @@
+""" Stolen from Renodesper's vimrc https://github.com/renodesper/dotfiles/blob/master/.vimrc
+
 set nocompatible
 call plug#begin(expand('~/.vim/bundle/'))
 
 " General {
-    Plug 'wincent/terminus'  " Enhanced terminal integration for Vim
-    Plug 'eiginn/netrw'  " Network oriented reading, writing, and browsing
-    Plug 'fholgado/minibufexpl.vim'  " Elegant buffer explorer
-    Plug 'itchyny/lightline.vim'  " Statusline/tabline for Vim
-    Plug 'junegunn/goyo.vim'  " Distraction free
-    Plug 'Lokaltog/vim-easymotion'  " Vim motion on speed (Leader Leader w/f/s)
-    Plug 'mhinz/vim-startify'  " Start screen
-    Plug 'nacitar/terminalkeys.vim'  " rxvt Terminal Keys support on tmux
-    Plug 'ntpeters/vim-better-whitespace', {'on': 'ToggleStripWhitespaceOnSave'}  " Trim whitespace
-    Plug 'sjl/gundo.vim'  " Visualize your undo tree
-    Plug 'terryma/vim-multiple-cursors'  " Multiple cursor
-    Plug 'tpope/vim-abolish'  " String substitute for singular / plural (context, sensitive)
-    Plug 'tyru/open-browser.vim'
-    Plug 'vasconcelloslf/vim-interestingwords'
+    Plug 'itchyny/lightline.vim'   " Statusline/tabline for Vim
+    Plug 'junegunn/goyo.vim'       " Distraction free
+    Plug 'Lokaltog/vim-easymotion' " Vim motion on speed (Leader Leader w/f/s)
+    Plug 'mhinz/vim-startify'      " Start screen
+    Plug 'godlygeek/tabular'       " Text filtering and alignment
+    Plug 'majutsushi/tagbar'       " Displays tags in a window, ordered by scope
 " }
 
 " Theme {
@@ -23,18 +17,15 @@ call plug#begin(expand('~/.vim/bundle/'))
 " }
 
 " General Programming {
-    Plug 'godlygeek/tabular'  " Text filtering and alignment (Leader a = / Leader a :)
-    Plug 'lambdalisue/vim-gista'  " Gist
-    Plug 'majutsushi/tagbar'  " Python tag list
-    Plug 'mickaobrien/vim-stackoverflow'  " Stackoverflow from Vim
-    Plug 'Raimondi/delimitMate'  " Auto close scope (brackets, quotes, etc)
-    Plug 'scrooloose/syntastic'  " Awesome syntax checking plugin
-    Plug 'terryma/vim-expand-region'  " Expand visual selection by multiple '+' and shrink by multiple '_'
-    Plug 'tpope/vim-commentary'  " Language-agnostic commenting plugin (gcc gcap gcgc)
-    Plug 'tpope/vim-fugitive'  " Git integration
-    Plug 'airblade/vim-gitgutter'  " Git Gutter
-    Plug 'tpope/vim-surround'  " Quoting/parenthesizing made simple (cs'` ds' ysiw] yssb ds{ds))
-    Plug 'tpope/vim-repeat'  " Enable repeating supported plugin
+    Plug 'tpope/vim-fugitive'              " Git integration
+    Plug 'lambdalisue/vim-gista'           " Gist
+    Plug 'Raimondi/delimitMate'            " Auto close scope (brackets, quotes, etc)
+    Plug 'scrooloose/syntastic'            " Awesome syntax checking plugin
+    Plug 'tpope/vim-commentary'            " Language-agnostic commenting plugin (gcc gcap gcgc)
+    Plug 'airblade/vim-gitgutter'          " Git Gutter
+    Plug 'tpope/vim-surround'              " Quoting/parenthesizing made simple (cs'` ds' ysiw] yssb ds{ds))
+    Plug 'tpope/vim-repeat'                " Enable repeating supported plugin
+    Plug 'nathanaelkane/vim-indent-guides' " Visually displaying indent levels in code
 " }
 
 " Snippets & AutoComplete {
@@ -45,38 +36,11 @@ call plug#begin(expand('~/.vim/bundle/'))
     Plug 'SirVer/ultisnips'
 " }
 
-" Go {
-    Plug 'fatih/vim-go', {'for': 'go'}
-" }
-
-" Haskell {
-    " Plug 'adinapoli/cumino'
-    " Plug 'bitc/vim-hdevtools'
-    " Plug 'dag/vim2hs'
-    " Plug 'eagletmt/ghcmod-vim'
-    " Plug 'eagletmt/neco-ghc'
-    " Plug 'lukerandall/haskellmode-vim'
-    " Plug 'travitch/hasksyn'
-    " Plug 'Twinside/vim-haskellConceal'
-    " Plug 'Twinside/vim-haskellFold'
-" }
-
 " HTML {
     Plug 'gorodinskiy/vim-coloresque'
     Plug 'hail2u/vim-css3-syntax'
     Plug 'rstacruz/sparkup'  " Awesome HAML to HTML by CTRL-E on HTML files
     Plug 'tpope/vim-haml'  " Vim runtime files for Haml, Sass, and SCSS
-" }
-
-" Java {
-" }
-
-" Javascript {
-    Plug 'briancollins/vim-jst', {'for': ['html', 'php', 'js', 'less', 'sass', 'scss']}
-    Plug 'elzr/vim-json', {'for': ['html', 'php', 'js', 'less', 'sass', 'scss', 'json']}
-    Plug 'groenewege/vim-less', {'for': ['html', 'php', 'js', 'less', 'sass', 'scss']}
-    Plug 'kchmck/vim-coffee-script', {'for': ['html', 'php', 'js', 'less', 'sass', 'scss']}
-    Plug 'pangloss/vim-javascript', {'for': ['html', 'php', 'js', 'less', 'sass', 'scss']}
 " }
 
 " PHP {
@@ -114,8 +78,6 @@ call plug#begin(expand('~/.vim/bundle/'))
     Plug 'tsukkee/unite-tag'
 " }
 
-"
-
 " Deps {
     if executable('ag')
       Plug 'rking/ag.vim'  " The Silver Searcher
@@ -124,25 +86,9 @@ call plug#begin(expand('~/.vim/bundle/'))
 " }
 
 call plug#end()
+
 syntax on                     " syntax highlighing
 filetype plugin indent on     " Required!
-
-""" Abbreviations {
-  """ Laravel abbreviation {
-    " abbrev genc   ! php artisan generate:controller
-    " abbrev genm   ! php artisan generate:model
-    " abbrev genv   ! php artisan generate:view
-    " abbrev gens   ! php artisan generate:seed
-    " abbrev genmig ! php artisan generate:migration
-    " abbrev genr   ! php artisan generate:resource
-    " abbrev mig    ! php artisan migrate
-    " abbrev migm   ! php artisan migrate:make
-  """ }
-
-  """ Other abbreviation {
-    abbrev stov StackOverflow
-  """ }
-""" }
 
 """ Mapping {
   """ change the leader to be a comma vs slash
@@ -153,6 +99,9 @@ filetype plugin indent on     " Required!
 
   """ Reload Vimrc
   noremap <leader>rv :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<cr>
+
+  """ Set relative numbering
+  noremap <leader><space> :set rnu!<CR>
 
   """ sudo write this
   cmap W! w !sudo tee % >/dev/null
@@ -179,12 +128,6 @@ filetype plugin indent on     " Required!
   map <Down> gj
   map <Up> gk
 
-  """ Disable arrow keys
-  " map <up> <nop>
-  " map <down> <nop>
-  " map <left> <nop>
-  " map <right> <nop>
-
   """ Common shortcut
   nmap <C-d> yyp
   nmap <C-x> dd
@@ -208,10 +151,6 @@ filetype plugin indent on     " Required!
   """ Moving to first or last word in line
   nnoremap <S-h> ^
   nnoremap <S-l> $
-
-  """ open/close the quickfix window
-  nnoremap <leader>c :copen<cr>
-  nnoremap <leader>cc :cclose<cr>
 
   """ Clear highlight after searching
   nnoremap <silent> <leader>/ :silent :nohlsearch<cr>
@@ -289,18 +228,14 @@ filetype plugin indent on     " Required!
   set mouse=a
 
   """ Color and tmux
-  if &term =~ '^screen-256color'
-    map  <Esc>[1~ <Home>
-    map! <Esc>[1~ <Home>
-    map  <Esc>[4~ <End>
-    map! <Esc>[4~ <End>
-    set t_ut=
-    set t_Co=256
-  endif
+  set t_ut=
+  set t_Co=256
 
-  set background=dark
   colorscheme Tomorrow-Night-Bright
+  set background=dark
   hi DiffText gui=underline guibg=red guifg=black
+  hi LineNr ctermfg=grey ctermbg=232
+  hi clear SignColumn ctermbg=232
 
   """ Don't bell or blink
   set noerrorbells
@@ -367,7 +302,6 @@ filetype plugin indent on     " Required!
   set noshowmode              " Hide the default mode text
   set report=0                " : commands always print changed line count.
   set shortmess+=a            " Use [+]/[RO]/[w] for modified/readonly/written.
-  set ruler                   " Show some info, even without statuslines.
   set laststatus=2            " Always show statusline, even if only 1 window.
 
   """ Searching and Patterns
@@ -416,38 +350,8 @@ filetype plugin indent on     " Required!
     nmap f <Plug>(easymotion-s2)
   """ }
 
-  """ Eclim Setting {
-    let g:EclimCompletionMethod = 'omnifunc'
-  """ }
-
   """ Gista Setting {
-    let g:gista#github_user = 'renodesper'
-  """ }
-
-  """ Go Setting {
-    au FileType go call GoOptions()
-    function! GoOptions()
-      let g:go_highlight_functions = 1
-      let g:go_highlight_methods = 1
-      let g:go_highlight_structs = 1
-      let g:go_fmt_command = "goimports"
-      let g:go_fmt_fail_silently = 1
-      let g:go_play_open_browser = 0
-    endfunction
-
-    au FileType go call GoMap()
-    function! GoMap()
-      au FileType go nmap <Leader>gs <Plug>(go-implements)
-      au FileType go nmap <Leader>gi <Plug>(go-info)
-      au FileType go nmap <Leader>gd <Plug>(go-doc)
-      au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-      au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
-      au FileType go nmap <leader>gr :!go run %<CR>
-      au FileType go nmap <leader>gb <Plug>(go-build)
-      au FileType go nmap <leader>gt <Plug>(go-test)
-      au FileType go nmap <leader>gc <Plug>(go-coverage)
-      au FileType go nmap <Leader>ge <Plug>(go-rename)
-    endfunction
+    let g:gista#github_user = 'atmorojo'
   """ }
 
   """ Goyo Mapping (distraction free) {
@@ -455,27 +359,10 @@ filetype plugin indent on     " Required!
     inoremap <F5> <esc>:Goyo<cr>i
   """ }
 
-  """ Gundo Setting & Mapping {
-    let g:gundo_width = 40
-    let g:gundo_preview_height = 15
-    let g:gundo_right = 1
-    let g:gundo_preview_bottom = 1
-    let g:gundo_help = 0
-    nnoremap <F4> :GundoToggle<cr>
-    inoremap <F4> <esc>:GundoToggle<cr>i
-  """ }
-
-  """ JS Beautify Setting {
-    let g:used_javascript_libs = 'jquery'
-    autocmd FileType javascript noremap <buffer> <leader>f :%!js-beautify -w 79 -j -q -B -f -<cr>
-    autocmd FileType html,php noremap <buffer> <leader>f :%!html-beautify -w 79 -f -<cr>
-    autocmd FileType css noremap <buffer> <leader>f :%!css-beautify -f -<cr>
-  """ }
-
   """ NeoComplete Setting {
-    let g:acp_enableAtStartup = 0  " Disable AutoComplPop
-    let g:neocomplete#enable_at_startup = 1  " Use neocomplete
-    let g:neocomplete#enable_smart_case = 1  " Use smartcase
+    let g:acp_enableAtStartup = 0                      " Disable AutoComplPop
+    let g:neocomplete#enable_at_startup = 1            " Use neocomplete
+    let g:neocomplete#enable_smart_case = 1            " Use smartcase
     let g:neocomplete#enable_auto_delimiter = 1
     let g:neocomplete#max_list = 15
     let g:neocomplete#force_overwrite_completefunc = 1
@@ -632,90 +519,6 @@ filetype plugin indent on     " Required!
     autocmd FileType html,php,css,sass,scss call WebSetting()
     function! WebSetting()
       set nowrap
-    endfunction
-  """ }
-
-  """ Lightline Setting {
-    let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
-      \   'right': [ [ 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
-      \ },
-      \ 'component_function': {
-      \   'fugitive': 'MyFugitive',
-      \   'filename': 'MyFilename',
-      \   'fileformat': 'MyFileformat',
-      \   'filetype': 'MyFiletype',
-      \   'fileencoding': 'MyFileencoding',
-      \   'mode': 'MyMode',
-      \ },
-      \ 'component_expand': {
-      \   'syntastic': 'SyntasticStatuslineFlag',
-      \ },
-      \ 'component_type': {
-      \   'syntastic': 'error',
-      \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
-      \ }
-
-    function! MyModified()
-      return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
-    endfunction
-
-    function! MyReadonly()
-      return &ft !~? 'help' && &readonly ? 'RO' : ''
-    endfunction
-
-    function! MyFilename()
-      let fname = expand('%:t')
-      return fname =~ '__Gundo\' ? '' :
-        \ ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-        \ ('' != fname ? fname : '[No Name]') .
-        \ ('' != MyModified() ? ' ' . MyModified() : '')
-    endfunction
-
-    function! MyFugitive()
-      try
-        if expand('%:t') !~? 'Gundo\' && exists('*fugitive#head')
-          let mark = ''  " edit here for cool mark
-          let _ = fugitive#head()
-          return strlen(_) ? mark._ : ''
-        endif
-      catch
-      endtry
-      return ''
-    endfunction
-
-    function! MyFileformat()
-      return winwidth(0) > 70 ? &fileformat : ''
-    endfunction
-
-    function! MyFiletype()
-      return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
-    endfunction
-
-    function! MyFileencoding()
-      return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
-    endfunction
-
-    function! MyMode()
-      let fname = expand('%:t')
-      return fname ==  'ControlP' ? 'CtrlP' :
-        \ fname == '__Gundo__' ? 'Gundo' :
-        \ fname == '__Gundo_Preview__' ? 'Gundo Preview' :
-        \ winwidth(0) > 60 ? lightline#mode() : ''
-    endfunction
-
-    augroup AutoSyntastic
-      autocmd!
-      autocmd BufWritePost *.c,*.cpp call s:syntastic()
-    augroup END
-
-    function! s:syntastic()
-      SyntasticCheck
-      call lightline#update()
     endfunction
   """ }
 """ }
