@@ -1,12 +1,31 @@
+source $HOME/.dotfiles/aliases  # Aliases
+bindkey -v                      # Vim-mode zsh
+stty -ixon                      # Fix ctrl-s problem
+SAL_USE_VCLPLUGIN=gtk           # LibreOffice engine
+
+# Prompt {
 PROMPT="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
 RPROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_no_bold[yellow]%}%1~ %{$reset_color%}%#"
+# }
 
-source $HOME/.dotfiles/aliases
+# Add PATHs {
+RUBY="$(ruby -e 'print Gem.user_dir')/bin"
+COMPOSER="${HOME}/.composer/vendor/bin"
+NPM="${HOME}/.npm"
 
-PATH="$(ruby -e 'print Gem.user_dir')/bin:/home/atmorojo/.composer/vendor/bin:$PATH"
+PATH="$RUBY:$COMPOSER:$NPM/bin:$PATH"
+# }
 
-stty -ixon
+# Add ManPath {
+## Unset manpath so we can inherit from /etc/manpath via the `manpath` command
+unset MANPATH # delete if you already modified MANPATH elsewhere in your config
+export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+# }
 
-bindkey -v
-
-SAL_USE_VCLPLUGIN=gtk
+# Run tmux {
+if [[ $TERM != "linux" ]]; then
+    if [[ -z $TMUX ]]; then
+        tmux attach
+    fi
+fi
+# }

@@ -4,12 +4,11 @@ set nocompatible
 call plug#begin(expand('~/.vim/bundle/'))
 
 " General {
-    Plug 'itchyny/lightline.vim'   " Statusline/tabline for Vim
-    Plug 'junegunn/goyo.vim'       " Distraction free
-    Plug 'Lokaltog/vim-easymotion' " Vim motion on speed (Leader Leader w/f/s)
-    Plug 'mhinz/vim-startify'      " Start screen
-    Plug 'godlygeek/tabular'       " Text filtering and alignment
-    Plug 'majutsushi/tagbar'       " Displays tags in a window, ordered by scope
+    Plug 'itchyny/lightline.vim'           " Statusline/tabline for Vim
+    Plug 'junegunn/goyo.vim'               " Distraction free
+    Plug 'Lokaltog/vim-easymotion'         " Vim motion on speed (Leader Leader w/f/s)
+    Plug 'mhinz/vim-startify'              " Start screen
+    Plug 'godlygeek/tabular'               " Text filtering and alignment
 " }
 
 " Theme {
@@ -17,6 +16,7 @@ call plug#begin(expand('~/.vim/bundle/'))
 " }
 
 " General Programming {
+    Plug 'majutsushi/tagbar'               " Displays tags in a window, ordered by scope
     Plug 'tpope/vim-fugitive'              " Git integration
     Plug 'lambdalisue/vim-gista'           " Gist
     Plug 'Raimondi/delimitMate'            " Auto close scope (brackets, quotes, etc)
@@ -26,13 +26,12 @@ call plug#begin(expand('~/.vim/bundle/'))
     Plug 'tpope/vim-surround'              " Quoting/parenthesizing made simple (cs'` ds' ysiw] yssb ds{ds))
     Plug 'tpope/vim-repeat'                " Enable repeating supported plugin
     Plug 'nathanaelkane/vim-indent-guides' " Visually displaying indent levels in code
+    Plug 'justinmk/vim-syntax-extra'       " A collection of syntax definitions not yet shipped with stock vim
 " }
 
 " Snippets & AutoComplete {
     Plug 'honza/vim-snippets'
     Plug 'Shougo/neocomplete.vim'
-    Plug 'Shougo/neosnippet'
-    Plug 'Shougo/neosnippet-snippets'
     Plug 'SirVer/ultisnips'
 " }
 
@@ -71,11 +70,11 @@ call plug#begin(expand('~/.vim/bundle/'))
 " }
 
 " Unite, async, and unite tags support {
-    Plug 'Shougo/neomru.vim'
-    Plug 'Shougo/unite.vim'
-    Plug 'Shougo/vimproc.vim', {'do' : 'make -f make_unix.mak' }
-    Plug 'Shougo/vimshell.vim'
-    Plug 'tsukkee/unite-tag'
+    " Plug 'Shougo/neomru.vim'
+    " Plug 'Shougo/unite.vim'
+    " Plug 'Shougo/vimproc.vim', {'do' : 'make -f make_unix.mak' }
+    " Plug 'Shougo/vimshell.vim'
+    " Plug 'tsukkee/unite-tag'
 " }
 
 " Deps {
@@ -122,31 +121,11 @@ filetype plugin indent on     " Required!
   """ Quit window on <leader>q
   inoremap <leader>q <esc>:q<cr>
 
-  """ Long lines as break lines
-  map j gj
-  map k gk
-  map <Down> gj
-  map <Up> gk
-
-  """ Common shortcut
-  nmap <C-d> yyp
-  nmap <C-x> dd
-
-  """ ctrl-hjkl changes to that split
-  noremap <C-h> <C-w>h
-  noremap <C-j> <C-w>j
-  noremap <C-k> <C-w>k
-  noremap <C-l> <C-w>l
-
   """ Easy window resize
   nnoremap <silent> <C-S-h> <C-w><
   nnoremap <silent> <C-S-j> <C-W>-
   nnoremap <silent> <C-S-k> <C-W>+
   nnoremap <silent> <C-S-l> <C-w>>
-
-  """ Moving per page
-  nnoremap <S-j> <PageDown>
-  nnoremap <S-k> <PageUp>
 
   """ Moving to first or last word in line
   nnoremap <S-h> ^
@@ -166,14 +145,14 @@ filetype plugin indent on     " Required!
   vnoremap <C-c> "+y
 
   """ Paste from clipboard
-  inoremap <C-v> <Esc>"+pa
-  nnoremap <C-v> "+p
+  " inoremap <C-v> <Esc>"+pa
+  " nnoremap <C-v> "+p
 
   """ Changing : into ;
   nnoremap ; :
 
   """ Very magic for Regex
-  noremap / /\v
+  " noremap / /\v
 
   """ Auto change directory to match current file
   nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
@@ -210,7 +189,7 @@ filetype plugin indent on     " Required!
   endif
 
   if has("gui_running")
-    set guifont=Fira\ Mono\ 10
+    set guifont=Source\ Code\ Pro\ 8
     set guioptions-=m
     set guioptions-=T
   endif
@@ -471,23 +450,26 @@ filetype plugin indent on     " Required!
   """ }
 
   """ Unite Setting & Mapping {
-    let g:UltiSnipsExpandTrigger="<leader><Tab>"
-    autocmd FileType unite call s:unite_settings()
-    function! s:unite_settings()
-      imap <buffer> <C-h> <Plug>(unite_delete_backward_path)
-      let g:unite_source_history_yank_enable = 1
-    endfunction
-    call unite#filters#matcher_default#use(['matcher_fuzzy', 'matcher_hide_hidden_files', 'sorter_rank'])
+    " let g:UltiSnipsExpandTrigger="<leader><Tab>"
+    " autocmd FileType unite call s:unite_settings()
+    " function! s:unite_settings()
+    "   imap <buffer> <C-h> <Plug>(unite_delete_backward_path)
+    "   let g:unite_source_history_yank_enable = 1
+    " endfunction
+    " call unite#filters#matcher_default#use(['matcher_fuzzy', 'matcher_hide_hidden_files', 'sorter_rank'])
 
-    nnoremap [unite] <Nop>
-    nmap <space> [unite]
-    nnoremap [unite]f :Unite -start-insert file<cr>
-    nnoremap [unite]a :Unite -start-insert file_rec/async<cr>
-    nnoremap [unite]t :Unite -start-insert tag<cr>
-    nnoremap [unite]g :Unite grep:.<cr>
-    nnoremap [unite]h :Unite -quick-match history/yank<cr>
-    nnoremap [unite]r :Unite -quick-match file_mru<cr>
-    nnoremap [unite]b :Unite -quick-match buffer<cr>
+    " nnoremap [unite] <Nop>
+    " nmap <space> [unite]
+    " nnoremap [unite]f :Unite -start-insert file<cr>
+    " nnoremap [unite]a :Unite -start-insert file_rec/async<cr>
+    " nnoremap [unite]t :Unite -start-insert tag<cr>
+    " nnoremap [unite]g :Unite grep:.<cr>
+    " nnoremap [unite]h :Unite -quick-match history/yank<cr>
+    " nnoremap [unite]r :Unite -quick-match file_mru<cr>
+    " nnoremap [unite]b :Unite -quick-match buffer<cr>
+
+    " imap <silent><buffer><expr> <C-s>     unite#do_action('split')
+    " imap <silent><buffer><expr> <C-v>     unite#do_action('vsplit')
   """ }
 
   """ Vim CSS3 Syntax Setting {
@@ -504,7 +486,6 @@ filetype plugin indent on     " Required!
 
   """ Vim Indent Guide {
     let g:indent_guides_start_level = 2
-    let g:indent_guides_guide_size = 1
     let g:indent_guides_enable_on_vim_startup = 1
   """ }
 
