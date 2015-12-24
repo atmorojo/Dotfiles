@@ -70,9 +70,9 @@ call plug#begin(expand('~/.vim/bundle/'))
 " }
 
 " Unite, async, and unite tags support {
-    " Plug 'Shougo/neomru.vim'
-    " Plug 'Shougo/unite.vim'
-    " Plug 'Shougo/vimproc.vim', {'do' : 'make -f make_unix.mak' }
+    Plug 'Shougo/neomru.vim'
+    Plug 'Shougo/unite.vim'
+    Plug 'Shougo/vimproc.vim', {'do' : 'make -f make_unix.mak' }
     " Plug 'Shougo/vimshell.vim'
     " Plug 'tsukkee/unite-tag'
 " }
@@ -88,99 +88,6 @@ call plug#end()
 
 syntax on                     " syntax highlighing
 filetype plugin indent on     " Required!
-
-""" Mapping {
-  """ change the leader to be a comma vs slash
-  let mapleader=","
-
-  """ Edit my vimrc file
-  nnoremap <leader>ev :e $MYVIMRC<cr>
-
-  """ Reload Vimrc
-  noremap <leader>rv :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<cr>
-
-  """ Set relative numbering
-  noremap <leader><space> :set rnu!<CR>
-
-  cmap W! w !sudo tee % >/dev/null
-  """ sudo write this
-
-  """ for when we forget to use sudo to open/edit a file
-  cmap w!! w !sudo tee % >/dev/null
-
-  """ and lets make these all work in insert mode too ( <C-O> makes next cmd
-  """ happen as if in command mode )
-  inoremap <C-W> <C-O><C-W>
-
-  """ Easy escaping to normal model
-  inoremap jj <esc>
-
-  """ Fast save
-  inoremap <leader>w <esc>:w!<cr>a
-
-  """ Quit window on <leader>q
-  inoremap <leader>q <esc>:q<cr>
-
-  """ Easy window resize
-  nnoremap <silent> <C-S-h> <C-w><
-  nnoremap <silent> <C-S-j> <C-W>-
-  nnoremap <silent> <C-S-k> <C-W>+
-  nnoremap <silent> <C-S-l> <C-w>>
-
-  """ Moving to first or last word in line
-  nnoremap <S-h> ^
-  nnoremap <S-l> $
-
-  """ Clear highlight after searching
-  nnoremap <silent> <leader>/ :silent :nohlsearch<cr>
-
-  """ New buffer, moving between buffer, close buffer, and list buffer
-  nmap <leader>bt :enew<cr>
-  nmap <leader>bn :bnext<cr>
-  nmap <leader>bp :bprevious<cr>
-  nmap <leader>bq :bp <bar> bd #<cr>
-  nmap <leader>bl :ls<cr>
-
-  """ Copy to copy-and-paste clipboard
-  vnoremap <C-c> "+y
-
-  """ Paste from clipboard
-  inoremap <S-KInsert> <Esc>"+pa
-  nnoremap <S-KInsert> "+p
-
-  """ Changing : into ;
-  nnoremap ; :
-
-  """ Very magic for Regex
-  " noremap / /\v
-
-  """ Auto change directory to match current file
-  nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
-
-  """ Fast saves
-  nnoremap <leader>w :w!<cr>
-
-  """ Quit window on <leader>q
-  nnoremap <leader>q :q<cr>
-
-  """ Execute itself with python2
-  " nnoremap <leader>p :w !python2<cr>
-
-  """ Visual shifting
-  vnoremap < <gv
-  vnoremap > >gv
-
-  """ Allow repeat with visual selection
-  vnoremap . :normal .<CR>
-
-  """ Fix ABCD when pressing arrow keys
-  " the following simply creates an ambiguous mapping so vim fully
-  " processes the escape sequence for terminal keys, see 'ttimeout' for a
-  " rough explanation, this just forces it to work
-  if &term[:4] == "xterm" || &term[:5] == 'screen' || &term[:3] == 'rxvt'
-    inoremap <silent> <C-[>OC <RIGHT>
-  endif
-""" }
 
 """ Basic Settings {
   if has("multi_byte")
@@ -203,7 +110,6 @@ filetype plugin indent on     " Required!
   set wildmenu                  " Menu completion in command mode on <Tab>
   set wildmode=full             " <Tab> cycles between all matching choices.
   set antialias
-  set dictionary=/usr/share/dict/usa
   set mouse=a
 
   """ Color and tmux
@@ -218,7 +124,6 @@ filetype plugin indent on     " Required!
 
   """ Don't bell or blink
   set noerrorbells
-  set vb t_vb=
 
   """ Ignore these files when completing
   set wildignore+=.hg,.git,.svn,*.aux,*.out,*.toc,*.jpg,*.bmp,*.gif,*.png
@@ -289,29 +194,6 @@ filetype plugin indent on     " Required!
   set hlsearch                " Highlight searches by default.
   set incsearch               " Incrementally search while typing a /regex
 
-  """ fugitive git bindings
-  nnoremap <space>ga :Git add %:p<CR><CR>
-  nnoremap <space>gs :Gstatus<CR>
-  nnoremap <space>gc :Gcommit -v -q<CR>
-  nnoremap <space>gt :Gcommit -v -q %:p<CR>
-  nnoremap <space>gd :Gdiff<CR>
-  nnoremap <space>ge :Gedit<CR>
-  nnoremap <space>gr :Gread<CR>
-  nnoremap <space>gw :Gwrite<CR><CR>
-  nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
-  nnoremap <space>gp :Ggrep<Space>
-  nnoremap <space>gm :Gmove<Space>
-  nnoremap <space>gb :Git branch<Space>
-  nnoremap <space>go :Git checkout<Space>
-  nnoremap <space>gps :Dispatch! git push<CR>
-  nnoremap <space>gpl :Dispatch! git pull<CR>
-
-  """ Backup File
-  if isdirectory('/tmp/vim/backupdir') == 0
-    :silent !mkdir -p /tmp/vim/backupdir > /dev/null 2>&1
-  endif
-  set directory=/tmp/vim/backupdir//
-
   """ Swap File
   if isdirectory($HOME . '/.vim/swap') == 0
     :silent !mkdir -p ~/.vim/swap > /dev/null 2>&1
@@ -332,7 +214,102 @@ filetype plugin indent on     " Required!
   endif
 """ }
 
+""" Mapping {
+  """ change the leader to be a comma vs slash
+  " let mapleader=","
+
+  """ Edit my vimrc file
+  nnoremap <space>ev :e $MYVIMRC<cr>
+
+  """ Reload Vimrc
+  noremap <space>rv :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<cr>
+
+  """ Set relative numbering
+  noremap <space><space> :set rnu!<CR>
+
+  """ sudo write this
+  cmap W! w !sudo tee % >/dev/null
+
+  """ for when we forget to use sudo to open/edit a file
+  cmap w!! w !sudo tee % >/dev/null
+
+  """ Easy escaping to normal model
+  inoremap jj <esc>
+
+  """ Fast save
+  inoremap <space>w <esc>:w!<cr>a
+  noremap <space>w <esc>:w!<cr>a
+
+  """ Quit window on <leader>q
+  inoremap <space>q <esc>:q<cr>
+  noremap <space>q <esc>:q<cr>
+
+  """ Easy window resize
+  " nnoremap <silent> <C-S-h> <C-w><
+  " nnoremap <silent> <C-S-j> <C-W>-
+  " nnoremap <silent> <C-S-k> <C-W>+
+  " nnoremap <silent> <C-S-l> <C-w>>
+
+  """ Moving to first or last word in line
+  nnoremap <S-h> ^
+  nnoremap <S-l> $
+
+  """ Clear highlight after searching
+  nnoremap <silent> <space>/ :silent :nohlsearch<cr>
+
+  """ Copy to copy-and-paste clipboard
+  vnoremap <C-c> "+y
+
+  """ Paste from clipboard
+  inoremap <S-KInsert> <Esc>"+pa
+  nnoremap <S-KInsert> "+p
+
+  """ Changing : into ;
+  nnoremap ; :
+
+  """ Very magic for Regex
+  " noremap / /\v
+
+  """ Auto change directory to match current file
+  nnoremap <space>cd :cd %:p:h<cr>:pwd<cr>
+
+  """ Execute itself with python2
+  " nnoremap <leader>p :w !python2<cr>
+
+  """ Visual shifting
+  vnoremap < <gv
+  vnoremap > >gv
+
+  """ Allow repeat with visual selection
+  vnoremap . :normal .<CR>
+
+  """ Fix ABCD when pressing arrow keys
+  " the following simply creates an ambiguous mapping so vim fully
+  " processes the escape sequence for terminal keys, see 'ttimeout' for a
+  " rough explanation, this just forces it to work
+  if &term[:4] == "xterm" || &term[:5] == 'screen' || &term[:3] == 'rxvt'
+    inoremap <silent> <C-[>OC <RIGHT>
+  endif
+
 """ Plugin Setting & Mapping {
+  """ fugitive git bindings {
+    nnoremap <space>ga :Git add %:p<CR><CR>
+    nnoremap <space>gs :Gstatus<CR>
+    nnoremap <space>gc :Gcommit -v -q<CR>
+    nnoremap <space>gt :Gcommit -v -q %:p<CR>
+    nnoremap <space>gd :Gdiff<CR>
+    nnoremap <space>ge :Gedit<CR>
+    nnoremap <space>gr :Gread<CR>
+    nnoremap <space>gw :Gwrite<CR><CR>
+    nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
+    nnoremap <space>gp :Ggrep<Space>
+    nnoremap <space>gm :Gmove<Space>
+    nnoremap <space>gb :Git branch<Space>
+    nnoremap <space>go :Git checkout<Space>
+    nnoremap <space>gps :Dispatch! git push<CR>
+    nnoremap <space>gpl :Dispatch! git pull<CR>
+  """ }
+
   """ Ctags Setting {
     if isdirectory($HOME . '/.vim/tags') == 0
       :silent !mkdir -p ~/.vim/tags > /dev/null 2>&1
@@ -466,27 +443,28 @@ filetype plugin indent on     " Required!
     inoremap <F3> <esc>:TagbarToggle<cr>i
   """ }
 
-  """ Unite Setting & Mapping {
-    " let g:UltiSnipsExpandTrigger="<leader><Tab>"
-    " autocmd FileType unite call s:unite_settings()
-    " function! s:unite_settings()
-    "   imap <buffer> <C-h> <Plug>(unite_delete_backward_path)
-    "   let g:unite_source_history_yank_enable = 1
-    " endfunction
-    " call unite#filters#matcher_default#use(['matcher_fuzzy', 'matcher_hide_hidden_files', 'sorter_rank'])
+  """ Unite Setting {
+    let g:unite_source_history_yank_enable = 1
+    call unite#filters#matcher_default#use(['matcher_fuzzy'])
+    nnoremap <space>p :<C-u>Unite -buffer-name=files   -start-insert file_rec/async:!<cr>
+    nnoremap <space>f :<C-u>Unite -buffer-name=files   -start-insert file<cr>
+    nnoremap <space>r :<C-u>Unite -buffer-name=mru     -start-insert file_mru<cr>
+    nnoremap <space>o :<C-u>Unite -buffer-name=outline -start-insert outline<cr>
+    nnoremap <space>y :<C-u>Unite -buffer-name=yank    history/yank<cr>
+    nnoremap <space>e :<C-u>Unite -quick-match -buffer-name=buffer  buffer<cr>
 
-    " nnoremap [unite] <Nop>
-    " nmap <space> [unite]
-    " nnoremap [unite]f :Unite -start-insert file<cr>
-    " nnoremap [unite]a :Unite -start-insert file_rec/async<cr>
-    " nnoremap [unite]t :Unite -start-insert tag<cr>
-    " nnoremap [unite]g :Unite grep:.<cr>
-    " nnoremap [unite]h :Unite -quick-match history/yank<cr>
-    " nnoremap [unite]r :Unite -quick-match file_mru<cr>
-    " nnoremap [unite]b :Unite -quick-match buffer<cr>
-
-    " imap <silent><buffer><expr> <C-s>     unite#do_action('split')
-    " imap <silent><buffer><expr> <C-v>     unite#do_action('vsplit')
+    " Custom mappings for the unite buffer
+    autocmd FileType unite call s:unite_settings()
+    function! s:unite_settings()
+        " Play nice with supertab
+        let b:SuperTabDisabled=1
+        " Enable navigation with control-j and control-k in insert mode
+        imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+        imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+        " Enable split with ease
+        imap <silent><buffer><expr> <C-s>     unite#do_action('split')
+        imap <silent><buffer><expr> <C-i>     unite#do_action('vsplit')
+    endfunction
   """ }
 
   """ Vim CSS3 Syntax Setting {

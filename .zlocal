@@ -1,7 +1,8 @@
-source $HOME/.dotfiles/aliases  # Aliases
-bindkey -v                      # Vim-mode zsh
-stty -ixon                      # Fix ctrl-s problem
-SAL_USE_VCLPLUGIN=gtk           # LibreOffice engine
+source $HOME/.dotfiles/aliases                  # Aliases
+bindkey -v                                      # Vim-mode zsh
+stty -ixon                                      # Fix ctrl-s problem
+SAL_USE_VCLPLUGIN=gtk                           # LibreOffice engine
+export GEM_HOME=$(ruby -e 'print Gem.user_dir') # Set GEM_HOME for bundler
 
 # Prompt {
 PROMPT="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
