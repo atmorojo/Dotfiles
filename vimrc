@@ -4,84 +4,84 @@ set nocompatible
 call plug#begin(expand('~/.vim/bundle/'))
 
 " General {
-    Plug 'itchyny/lightline.vim'           " Statusline/tabline for Vim
-    Plug 'junegunn/goyo.vim'               " Distraction free
-    Plug 'Lokaltog/vim-easymotion'         " Vim motion on speed (Leader Leader w/f/s)
-    Plug 'mhinz/vim-startify'              " Start screen
-    Plug 'godlygeek/tabular'               " Text filtering and alignment
+Plug 'itchyny/lightline.vim'           " Statusline/tabline for Vim
+Plug 'junegunn/goyo.vim'               " Distraction free
+Plug 'Lokaltog/vim-easymotion'         " Vim motion on speed (Leader Leader w/f/s)
+Plug 'mhinz/vim-startify'              " Start screen
+Plug 'godlygeek/tabular'               " Text filtering and alignment
 " }
 
 " Theme {
-    Plug 'chriskempson/vim-tomorrow-theme' " Tomorrow Themes
+Plug 'chriskempson/vim-tomorrow-theme' " Tomorrow Themes
 " }
 
 " General Programming {
-    Plug 'majutsushi/tagbar'               " Displays tags in a window, ordered by scope
-    Plug 'tpope/vim-fugitive'              " Git integration
-    Plug 'lambdalisue/vim-gista'           " Gist
-    Plug 'Raimondi/delimitMate'            " Auto close scope (brackets, quotes, etc)
-    Plug 'scrooloose/syntastic'            " Awesome syntax checking plugin
-    Plug 'tpope/vim-commentary'            " Language-agnostic commenting plugin (gcc gcap gcgc)
-    Plug 'airblade/vim-gitgutter'          " Git Gutter
-    Plug 'tpope/vim-surround'              " Quoting/parenthesizing made simple (cs'` ds' ysiw] yssb ds{ds))
-    Plug 'tpope/vim-repeat'                " Enable repeating supported plugin
-    Plug 'nathanaelkane/vim-indent-guides' " Visually displaying indent levels in code
-    Plug 'justinmk/vim-syntax-extra'       " A collection of syntax definitions not yet shipped with stock vim
+Plug 'majutsushi/tagbar'               " Displays tags in a window, ordered by scope
+Plug 'tpope/vim-fugitive'              " Git integration
+Plug 'lambdalisue/vim-gista'           " Gist
+Plug 'Raimondi/delimitMate'            " Auto close scope (brackets, quotes, etc)
+Plug 'scrooloose/syntastic'            " Awesome syntax checking plugin
+Plug 'tpope/vim-commentary'            " Language-agnostic commenting plugin (gcc gcap gcgc)
+Plug 'airblade/vim-gitgutter'          " Git Gutter
+Plug 'tpope/vim-surround'              " Quoting/parenthesizing made simple (cs'` ds' ysiw] yssb ds{ds))
+Plug 'tpope/vim-repeat'                " Enable repeating supported plugin
+Plug 'nathanaelkane/vim-indent-guides' " Visually displaying indent levels in code
+Plug 'justinmk/vim-syntax-extra'       " A collection of syntax definitions not yet shipped with stock vim
 " }
 
 " Snippets & AutoComplete {
-    Plug 'honza/vim-snippets'
-    Plug 'Shougo/neocomplete.vim'
-    Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'Shougo/neocomplete.vim'
+Plug 'SirVer/ultisnips'
 " }
 
 " HTML {
-    Plug 'gorodinskiy/vim-coloresque'
-    Plug 'hail2u/vim-css3-syntax'
-    Plug 'rstacruz/sparkup'  " Awesome HAML to HTML by CTRL-E on HTML files
-    Plug 'tpope/vim-haml'  " Vim runtime files for Haml, Sass, and SCSS
+Plug 'gorodinskiy/vim-coloresque'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'rstacruz/sparkup'  " Awesome HAML to HTML by CTRL-E on HTML files
+Plug 'tpope/vim-haml'  " Vim runtime files for Haml, Sass, and SCSS
 " }
 
 " PHP {
-    Plug 'arnaud-lb/vim-php-namespace', {'for': 'php'}
-    Plug 'beyondwords/vim-twig', {'for': 'php'}
-    Plug 'spf13/PIV', {'for': 'php'}
+Plug 'arnaud-lb/vim-php-namespace', {'for': 'php'}
+Plug 'beyondwords/vim-twig', {'for': 'php'}
+Plug 'spf13/PIV', {'for': 'php'}
 " }
 
 " Python {
-    Plug 'jmcomets/vim-pony'  " Django Snippet
-    Plug 'klen/python-mode'  " Pick either python-mode or pyflakes & pydoc
-    Plug 'python_match.vim'
-    Plug 'pythoncomplete'
-    Plug 'yssource/python.vim'
+Plug 'jmcomets/vim-pony'  " Django Snippet
+Plug 'klen/python-mode'  " Pick either python-mode or pyflakes & pydoc
+Plug 'python_match.vim'
+Plug 'pythoncomplete'
+Plug 'yssource/python.vim'
 " }
 
 " Ruby {
-    Plug 'tpope/vim-rails'
-    let g:rubycomplete_buffer_loading = 1
-    let g:rubycomplete_classes_in_global = 1
-    let g:rubycomplete_rails = 1
+Plug 'tpope/vim-rails'
+let g:rubycomplete_buffer_loading = 1
+let g:rubycomplete_classes_in_global = 1
+let g:rubycomplete_rails = 1
 " }
 
 " Misc {
-    Plug 'cespare/vim-toml'
-    Plug 'plasticboy/vim-markdown'
-    Plug 'shime/livedown'
+Plug 'cespare/vim-toml'
+Plug 'plasticboy/vim-markdown'
+Plug 'shime/livedown'
 " }
 
 " Unite, async, and unite tags support {
-    Plug 'Shougo/neomru.vim'
-    Plug 'Shougo/unite.vim'
-    Plug 'Shougo/vimproc.vim', {'do' : 'make -f make_unix.mak' }
-    " Plug 'Shougo/vimshell.vim'
-    " Plug 'tsukkee/unite-tag'
+Plug 'Shougo/neomru.vim'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimproc.vim', {'do' : 'make -f make_unix.mak' }
+" Plug 'Shougo/vimshell.vim'
+" Plug 'tsukkee/unite-tag'
 " }
 
 " Deps {
-    if executable('ag')
-      Plug 'rking/ag.vim'  " The Silver Searcher
-      let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
-    endif
+if executable('ag')
+    Plug 'rking/ag.vim'  " The Silver Searcher
+    let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
+endif
 " }
 
 call plug#end()
@@ -90,411 +90,415 @@ syntax on                     " syntax highlighing
 filetype plugin indent on     " Required!
 
 """ Basic Settings {
-  if has("multi_byte")
+if has("multi_byte")
     set encoding=utf-8
     setglobal fileencoding=utf-8
-  endif
+endif
 
-  if has("gui_running")
+if has("gui_running")
     set guifont=Source\ Code\ Pro\ 8
     set guioptions-=m
     set guioptions-=T
-  endif
+endif
 
-  """ Completion (OmniComplete)
-  au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-  set completeopt-=preview
+""" Completion (OmniComplete)
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+set completeopt-=preview
 
-  set number                    " Display line numbers
-  set title                     " show title in console title bar
-  set wildmenu                  " Menu completion in command mode on <Tab>
-  set wildmode=full             " <Tab> cycles between all matching choices.
-  set antialias
-  set mouse=a
+set number                    " Display line numbers
+set title                     " show title in console title bar
+set wildmenu                  " Menu completion in command mode on <Tab>
+set wildmode=full             " <Tab> cycles between all matching choices.
+set antialias
+set mouse=a
 
-  """ Color and tmux
-  set t_ut=
-  set t_Co=256
+""" Color and tmux
+set t_ut=
+set t_Co=256
 
-  colorscheme Tomorrow-Night-Bright
-  set background=dark
-  hi DiffText gui=underline guibg=red guifg=black
-  hi LineNr ctermfg=grey ctermbg=232
-  hi clear SignColumn ctermbg=232
+colorscheme Tomorrow-Night-Bright
+set background=dark
+hi DiffText gui=underline guibg=red guifg=black
+hi LineNr ctermfg=grey ctermbg=232
+hi clear SignColumn ctermbg=232
 
-  """ Don't bell or blink
-  set noerrorbells
+""" Don't bell or blink
+set noerrorbells
 
-  """ Ignore these files when completing
-  set wildignore+=.hg,.git,.svn,*.aux,*.out,*.toc,*.jpg,*.bmp,*.gif,*.png
-  set wildignore+=*.jpeg,*.luacd,*.o,*.obj,*.exe,*.dll,*.manifest,*.pyc,*.spl
-  set wildignore+=*.sw?,*.DS_Store?,*.class,eggs/**,*.egg-info/**,*/vendor/**
+""" Ignore these files when completing
+set wildignore+=.hg,.git,.svn,*.aux,*.out,*.toc,*.jpg,*.bmp,*.gif,*.png
+set wildignore+=*.jpeg,*.luacd,*.o,*.obj,*.exe,*.dll,*.manifest,*.pyc,*.spl
+set wildignore+=*.sw?,*.DS_Store?,*.class,eggs/**,*.egg-info/**,*/vendor/**
 
-  """ Set paste mode toggle
-  set pastetoggle=<F2>
+""" Set paste mode toggle
+set pastetoggle=<F2>
 
-  """ Disable paste mode when leaving insert mode
-  au InsertLeave * set nopaste
+""" Disable paste mode when leaving insert mode
+au InsertLeave * set nopaste
 """ }
 
 """ Moving Around/Editing {
-  set cursorline              " have a line indicate the cursor location
-  set ruler                   " show the cursor position all the time
-  set nostartofline           " Avoid moving cursor to BOL when jumping around
-  set virtualedit=block       " Let cursor move past the last char in <C-v> mode
-  set scrolloff=3             " Keep 5 context lines above and below the cursor
-  set sidescroll=1            " Enable sidescrolling
-  set sidescrolloff=15
-  set backspace=2             " Allow backspacing over autoindent, EOL, and BOL
-  set showmatch               " Briefly jump to a parent once it's balanced
-  set wrap                    " Wrap text
-  " set linebreak               " don't wrap text in the middle of a word
-  set autoindent              " always set autoindenting on
-  set copyindent              " copy indent from previous line
-  set smartindent             " use smart indent if there is no indent file
-  set tabstop=4               " <tab> inserts 'x' spaces
-  set shiftwidth=4            " And an indent level is 'x' spaces wide.
-  set softtabstop=4           " <BS> over an autoindent deletes all spaces.
-  set expandtab               " Use spaces, not tabs, for autoindent/tab key.
-  set shiftround              " rounds indent to a multiple of shiftwidth
-  set formatoptions=tcroql    " Setting text and comment formatting to auto
-  set textwidth=79            " lines are automatically wrapped after 79 columns
-  set colorcolumn=79          " highlight column 79 (where words will wrap)
-  set nofoldenable            " turn off folding
-  set splitright              " vsplit to right
-  set splitbelow              " split to below
+set cursorline              " have a line indicate the cursor location
+set ruler                   " show the cursor position all the time
+set nostartofline           " Avoid moving cursor to BOL when jumping around
+set virtualedit=block       " Let cursor move past the last char in <C-v> mode
+set scrolloff=3             " Keep 5 context lines above and below the cursor
+set sidescroll=1            " Enable sidescrolling
+set sidescrolloff=15
+set backspace=2             " Allow backspacing over autoindent, EOL, and BOL
+set showmatch               " Briefly jump to a parent once it's balanced
+set wrap                    " Wrap text
+" set linebreak               " don't wrap text in the middle of a word
+set autoindent              " always set autoindenting on
+set copyindent              " copy indent from previous line
+set smartindent             " use smart indent if there is no indent file
+set tabstop=4               " <tab> inserts 'x' spaces
+set shiftwidth=4            " And an indent level is 'x' spaces wide.
+set softtabstop=4           " <BS> over an autoindent deletes all spaces.
+set expandtab               " Use spaces, not tabs, for autoindent/tab key.
+set shiftround              " rounds indent to a multiple of shiftwidth
+set formatoptions=tcroql    " Setting text and comment formatting to auto
+set textwidth=79            " lines are automatically wrapped after 79 columns
+set colorcolumn=79          " highlight column 79 (where words will wrap)
+set nofoldenable            " turn off folding
+set splitright              " vsplit to right
+set splitbelow              " split to below
 
-  if &ft == 'css' || &ft == 'sass' || &ft == 'scss'
+if &ft == 'css' || &ft == 'sass' || &ft == 'scss'
     set tabstop=2
     set shiftwidth=2
     set softtabstop=2
-  endif
+endif
 
-  if &ft =='md'
-      autocmd BufNewFile,BufReadPost *.md set filetype=markdown
-  endif
+if &ft =='md'
+    autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+endif
 
-  """ Reading/Writing
-  set autowriteall            " Don't bother me about changed buffers
-  set autoread                " Automatically re-read changed files.
-  set modeline                " Allow vim options to be embedded in files;
-  set modelines=5             " they must be within the first or last 5 lines.
-  set clipboard=unnamed       " yank and paste in visual mode without *:
+""" Reading/Writing
+set autowriteall            " Don't bother me about changed buffers
+set autoread                " Automatically re-read changed files.
+set modeline                " Allow vim options to be embedded in files;
+set modelines=5             " they must be within the first or last 5 lines.
+set clipboard=unnamed       " yank and paste in visual mode without *:
 
-  """ Messages, Info, Status
-  set showcmd                 " Show incomplete normal mode commands as I type.
-  set noshowmode              " Hide the default mode text
-  set report=0                " : commands always print changed line count.
-  set shortmess+=a            " Use [+]/[RO]/[w] for modified/readonly/written.
-  set laststatus=2            " Always show statusline, even if only 1 window.
+""" Messages, Info, Status
+set showcmd                 " Show incomplete normal mode commands as I type.
+set noshowmode              " Hide the default mode text
+set report=0                " : commands always print changed line count.
+set shortmess+=a            " Use [+]/[RO]/[w] for modified/readonly/written.
+set laststatus=2            " Always show statusline, even if only 1 window.
 
-  """ Searching and Patterns
-  set ignorecase              " Default to using case insensitive searches,
-  set smartcase               " unless uppercase letters are used in the regex.
-  set hlsearch                " Highlight searches by default.
-  set incsearch               " Incrementally search while typing a /regex
+""" Searching and Patterns
+set ignorecase              " Default to using case insensitive searches,
+set smartcase               " unless uppercase letters are used in the regex.
+set hlsearch                " Highlight searches by default.
+set incsearch               " Incrementally search while typing a /regex
 
-  """ Swap File
-  if isdirectory($HOME . '/.vim/swap') == 0
+""" Swap File
+if isdirectory($HOME . '/.vim/swap') == 0
     :silent !mkdir -p ~/.vim/swap > /dev/null 2>&1
-  endif
-  set directory=~/.vim/swap//
+endif
+set directory=~/.vim/swap//
 
-  """ Undo File
-  if exists("+undofile")
+""" Undo File
+if exists("+undofile")
     " undofile - This allows you to use undos after exiting and restarting
     " This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
     " :help undo-persistence
     " This is only present in 7.3+
     if isdirectory($HOME . '/.vim/undo') == 0
-      :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
+        :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
     endif
     set undodir=~/.vim/undo//
     set undofile
-  endif
+endif
 """ }
 
 """ Mapping {
-  """ change the leader to be a comma vs slash
-  " let mapleader=","
+""" change the leader to be a comma vs slash
+" let mapleader=","
 
-  """ Edit my vimrc file
-  nnoremap <space>ev :e $MYVIMRC<cr>
+""" Edit my vimrc file
+nnoremap <space>ev :e $MYVIMRC<cr>
 
-  """ Reload Vimrc
-  noremap <space>rv :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<cr>
+""" Reload Vimrc
+noremap <space>rv :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<cr>
 
-  """ Set relative numbering
-  noremap <space><space> :set rnu!<CR>
+""" Set relative numbering
+noremap <space><space> :set rnu!<CR>
 
-  """ sudo write this
-  cmap W! w !sudo tee % >/dev/null
+""" sudo write this
+cmap W! w !sudo tee % >/dev/null
 
-  """ for when we forget to use sudo to open/edit a file
-  cmap w!! w !sudo tee % >/dev/null
+""" for when we forget to use sudo to open/edit a file
+cmap w!! w !sudo tee % >/dev/null
 
-  """ Easy escaping to normal model
-  inoremap jj <esc>
+""" Easy escaping to normal model
+inoremap jj <esc>
 
-  """ Fast save
-  inoremap <space>w <esc>:w!<cr>a
-  noremap <space>w <esc>:w!<cr>a
+""" Fast save
+inoremap <space>w <esc>:w!<cr>a
+noremap <space>w <esc>:w!<cr>a
 
-  """ Quit window on <leader>q
-  inoremap <space>q <esc>:q<cr>
-  noremap <space>q <esc>:q<cr>
+""" Quit window on <leader>q
+inoremap <space>q <esc>:q<cr>
+noremap <space>q <esc>:q<cr>
 
-  """ Easy window resize
-  " nnoremap <silent> <C-S-h> <C-w><
-  " nnoremap <silent> <C-S-j> <C-W>-
-  " nnoremap <silent> <C-S-k> <C-W>+
-  " nnoremap <silent> <C-S-l> <C-w>>
+""" Easy window resize
+" nnoremap <silent> <C-S-h> <C-w><
+" nnoremap <silent> <C-S-j> <C-W>-
+" nnoremap <silent> <C-S-k> <C-W>+
+" nnoremap <silent> <C-S-l> <C-w>>
 
-  """ Moving to first or last word in line
-  nnoremap <S-h> ^
-  nnoremap <S-l> $
+""" Moving to first or last word in line
+nnoremap <S-h> ^
+nnoremap <S-l> $
 
-  """ Clear highlight after searching
-  nnoremap <silent> <space>/ :silent :nohlsearch<cr>
+""" Clear highlight after searching
+nnoremap <silent> <space>/ :silent :nohlsearch<cr>
 
-  """ Copy to copy-and-paste clipboard
-  vnoremap <C-c> "+y
+""" Copy to copy-and-paste clipboard
+vnoremap <C-c> "+y
 
-  """ Paste from clipboard
-  inoremap <S-KInsert> <Esc>"+pa
-  nnoremap <S-KInsert> "+p
+""" Paste from clipboard
+inoremap <S-KInsert> <Esc>"+pa
+nnoremap <S-KInsert> "+p
 
-  """ Changing : into ;
-  nnoremap ; :
+""" Changing : into ;
+nnoremap ; :
 
-  """ Very magic for Regex
-  " noremap / /\v
+""" Very magic for Regex
+" noremap / /\v
 
-  """ Auto change directory to match current file
-  nnoremap <space>cd :cd %:p:h<cr>:pwd<cr>
+""" Auto change directory to match current file
+nnoremap <space>cd :cd %:p:h<cr>:pwd<cr>
 
-  """ Execute itself with python2
-  " nnoremap <leader>p :w !python2<cr>
+""" Execute itself with python2
+" nnoremap <leader>p :w !python2<cr>
 
-  """ Visual shifting
-  vnoremap < <gv
-  vnoremap > >gv
+""" Visual shifting
+vnoremap < <gv
+vnoremap > >gv
 
-  """ Allow repeat with visual selection
-  vnoremap . :normal .<CR>
+""" Allow repeat with visual selection
+vnoremap . :normal .<CR>
 
-  """ Fix ABCD when pressing arrow keys
-  " the following simply creates an ambiguous mapping so vim fully
-  " processes the escape sequence for terminal keys, see 'ttimeout' for a
-  " rough explanation, this just forces it to work
-  if &term[:4] == "xterm" || &term[:5] == 'screen' || &term[:3] == 'rxvt'
+""" Fix ABCD when pressing arrow keys
+" the following simply creates an ambiguous mapping so vim fully
+" processes the escape sequence for terminal keys, see 'ttimeout' for a
+" rough explanation, this just forces it to work
+if &term[:4] == "xterm" || &term[:5] == 'screen' || &term[:3] == 'rxvt'
     inoremap <silent> <C-[>OC <RIGHT>
-  endif
+endif
 
 """ Plugin Setting & Mapping {
-  """ fugitive git bindings {
-    nnoremap <space>ga :Git add %:p<CR><CR>
-    nnoremap <space>gs :Gstatus<CR>
-    nnoremap <space>gc :Gcommit -v -q<CR>
-    nnoremap <space>gt :Gcommit -v -q %:p<CR>
-    nnoremap <space>gd :Gdiff<CR>
-    nnoremap <space>ge :Gedit<CR>
-    nnoremap <space>gr :Gread<CR>
-    nnoremap <space>gw :Gwrite<CR><CR>
-    nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
-    nnoremap <space>gp :Ggrep<Space>
-    nnoremap <space>gm :Gmove<Space>
-    nnoremap <space>gb :Git branch<Space>
-    nnoremap <space>go :Git checkout<Space>
-    nnoremap <space>gps :Dispatch! git push<CR>
-    nnoremap <space>gpl :Dispatch! git pull<CR>
-  """ }
+""" fugitive git bindings {
+nnoremap <space>ga :Git add %:p<CR><CR>
+nnoremap <space>gs :Gstatus<CR>
+nnoremap <space>gc :Gcommit -v -q<CR>
+nnoremap <space>gt :Gcommit -v -q %:p<CR>
+nnoremap <space>gd :Gdiff<CR>
+nnoremap <space>ge :Gedit<CR>
+nnoremap <space>gr :Gread<CR>
+nnoremap <space>gw :Gwrite<CR><CR>
+nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
+nnoremap <space>gp :Ggrep<Space>
+nnoremap <space>gm :Gmove<Space>
+nnoremap <space>gb :Git branch<Space>
+nnoremap <space>go :Git checkout<Space>
+nnoremap <space>gps :Dispatch! git push<CR>
+nnoremap <space>gpl :Dispatch! git pull<CR>
+""" }
 
-  """ Ctags Setting {
-    if isdirectory($HOME . '/.vim/tags') == 0
-      :silent !mkdir -p ~/.vim/tags > /dev/null 2>&1
-    endif
-    set tags=./tags;/,~/.vim/tags
-  """ }
+""" Ctags Setting {
+if isdirectory($HOME . '/.vim/tags') == 0
+    :silent !mkdir -p ~/.vim/tags > /dev/null 2>&1
+endif
+set tags=./tags;/,~/.vim/tags
+""" }
 
-  """ Easymotion Setting & Mapping {
-    let g:EasyMotion_do_mapping = 0
-    let g:EasyMotion_smartcase = 1
-    nmap f <Plug>(easymotion-s2)
-  """ }
+""" Easymotion Setting & Mapping {
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_smartcase = 1
+nmap f <Plug>(easymotion-s2)
+""" }
 
-  """ Gista Setting {
-    let g:gista#github_user = 'atmorojo'
-  """ }
+""" Gista Setting {
+let g:gista#github_user = 'atmorojo'
+""" }
 
-  """ Goyo Mapping (distraction free) {
-    nnoremap <F5> :Goyo<cr>
-    inoremap <F5> <esc>:Goyo<cr>i
-  """ }
+""" Goyo Mapping (distraction free) {
+nnoremap <F5> :Goyo<cr>
+inoremap <F5> <esc>:Goyo<cr>i
+""" }
 
-  """ NeoComplete Setting {
-    let g:acp_enableAtStartup = 0                      " Disable AutoComplPop
-    let g:neocomplete#enable_at_startup = 1            " Use neocomplete
-    let g:neocomplete#enable_smart_case = 1            " Use smartcase
-    let g:neocomplete#enable_auto_delimiter = 1
-    let g:neocomplete#max_list = 15
-    let g:neocomplete#force_overwrite_completefunc = 1
+""" NeoComplete Setting {
+let g:acp_enableAtStartup = 0                      " Disable AutoComplPop
+let g:neocomplete#enable_at_startup = 1            " Use neocomplete
+let g:neocomplete#enable_smart_case = 1            " Use smartcase
+let g:neocomplete#enable_auto_delimiter = 1
+let g:neocomplete#max_list = 15
+let g:neocomplete#force_overwrite_completefunc = 1
 
-    " Define dictionary
-    let g:neocomplete#sources#dictionary#dictionaries = {
-      \ 'default' : '',
-      \ 'vimshell' : $HOME.'/.vimshell_hist',
-      \ 'scheme' : $HOME.'/.gosh_completions'
-      \ }
+" Define dictionary
+let g:neocomplete#sources#dictionary#dictionaries = {
+            \ 'default' : '',
+            \ 'vimshell' : $HOME.'/.vimshell_hist',
+            \ 'scheme' : $HOME.'/.gosh_completions'
+            \ }
 
-    " Define keyword
-    if !exists('g:neocomplete#keyword_patterns')
-      let g:neocomplete#keyword_patterns = {}
-    endif
-    let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+" Define keyword
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
-    " Enable omni completion
-    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-    autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-    autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+" Enable omni completion
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
-    " Enable heavy omni completion
-    if !exists('g:neocomplete#sources#omni#input_patterns')
-      let g:neocomplete#sources#omni#input_patterns = {}
-    endif
-    let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-    let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-    let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-    let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-    let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
+" Enable heavy omni completion
+if !exists('g:neocomplete#sources#omni#input_patterns')
+    let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplete#sources#omni#input_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
 
-    """ NeoComplete mapping
-    inoremap <expr><C-y> neocomplete#smart_close_popup()
-    " <ESC> takes you out of insert mode
-    inoremap <expr><Esc> pumvisible() ? "\<C-y>\<Esc>" : "\<Esc>"
-    " <CR>: close popup and save indent
-    inoremap <expr><CR> pumvisible() ? neocomplete#close_popup() : "\<CR>"
-    " <TAB>: completion
-    inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-    inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<TAB>"
-    " <BS>: close popup and delete backword char"
-    inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-    " Close popup by <Space> and insert <Space>
-    inoremap <expr><Space> neocomplete#close_popup() . "\<Space>"
-  """ }
+""" NeoComplete mapping
+inoremap <expr><C-y> neocomplete#smart_close_popup()
+" <ESC> takes you out of insert mode
+inoremap <expr><Esc> pumvisible() ? "\<C-y>\<Esc>" : "\<Esc>"
+" <CR>: close popup and save indent
+inoremap <expr><CR> pumvisible() ? neocomplete#close_popup() : "\<CR>"
+" <TAB>: completion
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<TAB>"
+" <BS>: close popup and delete backword char"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" Close popup by <Space> and insert <Space>
+inoremap <expr><Space> neocomplete#close_popup() . "\<Space>"
+""" }
 
-  """ PIV Setting {
-    let g:DisableAutoPHPFolding = 0
-    let g:PIVAutoClose = 0
-  """ }
+""" PIV Setting {
+let g:DisableAutoPHPFolding = 0
+let g:PIVAutoClose = 0
+""" }
 
-  """ Pony (Django) Setting {
-    let g:pony_prefix = "D"
-    let g:pony_display_colors = 1
-    let g:pony_manage_filename = "manage.py"
-    let g:pony_python_cmd = "python"
-  """ }
+""" Pony (Django) Setting {
+let g:pony_prefix = "D"
+let g:pony_display_colors = 1
+let g:pony_manage_filename = "manage.py"
+let g:pony_python_cmd = "python"
+""" }
 
-  """ Python Setting {
-    let g:pymode_lint_checkers = ['pyflakes']
-    let g:pymode_trim_whitespaces = 0
-    let g:pymode_options = 0
-    let g:pymode_rope = 0
-  """ }
+""" Python Setting {
+let g:pymode_lint_checkers = ['pyflakes']
+let g:pymode_trim_whitespaces = 0
+let g:pymode_options = 0
+let g:pymode_rope = 0
+""" }
 
-  """ Sparkup Setting {
-    let g:sparkupExecuteMapping = '<leader>e'
-  """ }
+""" Sparkup Setting {
+let g:sparkupExecuteMapping = '<leader>e'
+""" }
 
-  """ Syntastic Setting {
-    let g:syntastic_javascript_checkers = ['jshint']
-    let g:syntastic_python_checkers = ['pylint2']
-    let g:syntastic_php_checkers = ['php']
-    let g:syntastic_quiet_messages = { "type": "style" }
-  """ }
+""" Syntastic Setting {
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_python_checkers = ['pylint2']
+let g:syntastic_php_checkers = ['php']
+let g:syntastic_quiet_messages = { "type": "style" }
+""" }
 
-  """ Tabular Mapping {
-    if exists(":Tabularize")
-      nmap <Leader>a& :Tabularize /&<CR>
-      vmap <Leader>a& :Tabularize /&<CR>
-      nmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
-      vmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
-      nmap <Leader>a=> :Tabularize /=><CR>
-      vmap <Leader>a=> :Tabularize /=><CR>
-      nmap <Leader>a: :Tabularize /:<CR>
-      vmap <Leader>a: :Tabularize /:<CR>
-      nmap <Leader>a:: :Tabularize /:\zs<CR>
-      vmap <Leader>a:: :Tabularize /:\zs<CR>
-      nmap <Leader>a, :Tabularize /,<CR>
-      vmap <Leader>a, :Tabularize /,<CR>
-      nmap <Leader>a,, :Tabularize /,\zs<CR>
-      vmap <Leader>a,, :Tabularize /,\zs<CR>
-      nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-      vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-    endif
-  """ }
+""" Tabular Mapping {
+if exists(":Tabularize")
+    nmap <Leader>a& :Tabularize /&<CR>
+    vmap <Leader>a& :Tabularize /&<CR>
+    nmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
+    vmap <Leader>a= :Tabularize /^[^=]*\zs=<CR>
+    nmap <Leader>a=> :Tabularize /=><CR>
+    vmap <Leader>a=> :Tabularize /=><CR>
+    nmap <Leader>a: :Tabularize /:<CR>
+    vmap <Leader>a: :Tabularize /:<CR>
+    nmap <Leader>a:: :Tabularize /:\zs<CR>
+    vmap <Leader>a:: :Tabularize /:\zs<CR>
+    nmap <Leader>a, :Tabularize /,<CR>
+    vmap <Leader>a, :Tabularize /,<CR>
+    nmap <Leader>a,, :Tabularize /,\zs<CR>
+    vmap <Leader>a,, :Tabularize /,\zs<CR>
+    nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+    vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+endif
+""" }
 
-  """ Tagbar Mapping {
-    nnoremap <F3> :TagbarToggle<cr>
-    inoremap <F3> <esc>:TagbarToggle<cr>i
-  """ }
+""" Tagbar Mapping {
+nnoremap <F3> :TagbarToggle<cr>
+inoremap <F3> <esc>:TagbarToggle<cr>i
+""" }
 
-  """ Unite Setting {
-    let g:unite_source_history_yank_enable = 1
-    call unite#filters#matcher_default#use(['matcher_fuzzy'])
-    nnoremap <space>p :<C-u>Unite -buffer-name=files   -start-insert file_rec/async:!<cr>
-    nnoremap <space>f :<C-u>Unite -buffer-name=files   -start-insert file<cr>
-    nnoremap <space>r :<C-u>Unite -buffer-name=mru     -start-insert file_mru<cr>
-    nnoremap <space>o :<C-u>Unite -buffer-name=outline -start-insert outline<cr>
-    nnoremap <space>y :<C-u>Unite -buffer-name=yank    history/yank<cr>
-    nnoremap <space>e :<C-u>Unite -quick-match -buffer-name=buffer  buffer<cr>
+""" Unite Setting {
+let g:unite_data_directory='~/.vim/.cache/unite'
+let g:unite_source_history_yank_enable = 1
+let g:unite_prompt='» '
+let g:unite_enable_start_insert=1
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+nnoremap <space>p :<C-u>Unite -auto-resize -buffer-name=files   file_rec/async:!<cr>
+nnoremap <space>f :<C-u>Unite -auto-resize -buffer-name=files   file<cr>
+nnoremap <space>r :<C-u>Unite -auto-resize -buffer-name=mru     file_mru<cr>
+nnoremap <space>o :<C-u>Unite -auto-resize -buffer-name=outline outline<cr>
+nnoremap <space>y :<C-u>Unite -auto-resize -buffer-name=yank    history/yank<cr>
+nnoremap <space>e :<C-u>Unite -auto-resize -buffer-name=buffer  -quick-match buffer<cr>
 
-    " Custom mappings for the unite buffer
-    autocmd FileType unite call s:unite_settings()
-    function! s:unite_settings()
-        " Play nice with supertab
-        let b:SuperTabDisabled=1
-        " Enable navigation with control-j and control-k in insert mode
-        imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-        imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-        " Enable split with ease
-        imap <silent><buffer><expr> <C-s>     unite#do_action('split')
-        imap <silent><buffer><expr> <C-i>     unite#do_action('vsplit')
-    endfunction
-  """ }
+" Custom mappings for the unite buffer
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+    " Play nice with supertab
+    let b:SuperTabDisabled=1
+    " Enable navigation with control-j and control-k in insert mode
+    imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+    imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+    " Enable split with ease
+    imap <silent><buffer><expr> <C-s>     unite#do_action('split')
+    imap <silent><buffer><expr> <C-i>     unite#do_action('vsplit')
+endfunction
+""" }
 
-  """ Vim CSS3 Syntax Setting {
-    augroup VimCSS3Syntax
-      autocmd!
-      autocmd FileType css setlocal iskeyword+=-
-    augroup END
-  """ }
+""" Vim CSS3 Syntax Setting {
+augroup VimCSS3Syntax
+    autocmd!
+    autocmd FileType css setlocal iskeyword+=-
+augroup END
+""" }
 
-  """ Vim Expand Region Setting {
-    map + <Plug>(expand_region_expand)
-    map _ <Plug>(expand_region_shrink)
-  """ }
+""" Vim Expand Region Setting {
+map + <Plug>(expand_region_expand)
+map _ <Plug>(expand_region_shrink)
+""" }
 
-  """ Vim Indent Guide {
-    let g:indent_guides_start_level = 2
-    let g:indent_guides_enable_on_vim_startup = 1
-  """ }
+""" Vim Indent Guide {
+let g:indent_guides_start_level = 2
+let g:indent_guides_enable_on_vim_startup = 1
+""" }
 
-  """ Vim Multiple Cursor Mapping {
-    let g:multi_cursor_next_key='<C-n>'
-    let g:multi_cursor_prev_key='<C-p>'
-    let g:multi_cursor_skip_key='<C-x>'
-    let g:multi_cursor_quit_key='<Esc>'
-  """ }
+""" Vim Multiple Cursor Mapping {
+let g:multi_cursor_next_key='<C-n>'
+let g:multi_cursor_prev_key='<C-p>'
+let g:multi_cursor_skip_key='<C-x>'
+let g:multi_cursor_quit_key='<Esc>'
+""" }
 
-  """ Web Setting {
-    autocmd FileType html,php,css,sass,scss call WebSetting()
-    function! WebSetting()
-      set nowrap
-    endfunction
-  """ }
+""" Web Setting {
+autocmd FileType html,php,css,sass,scss call WebSetting()
+function! WebSetting()
+    set nowrap
+endfunction
+""" }
 """ }
