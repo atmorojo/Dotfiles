@@ -102,8 +102,8 @@ filetype plugin indent on     " Required!
   """ Set relative numbering
   noremap <leader><space> :set rnu!<CR>
 
-  """ sudo write this
   cmap W! w !sudo tee % >/dev/null
+  """ sudo write this
 
   """ for when we forget to use sudo to open/edit a file
   cmap w!! w !sudo tee % >/dev/null
@@ -145,8 +145,8 @@ filetype plugin indent on     " Required!
   vnoremap <C-c> "+y
 
   """ Paste from clipboard
-  " inoremap <C-v> <Esc>"+pa
-  " nnoremap <C-v> "+p
+  inoremap <S-KInsert> <Esc>"+pa
+  nnoremap <S-KInsert> "+p
 
   """ Changing : into ;
   nnoremap ; :
@@ -288,6 +288,23 @@ filetype plugin indent on     " Required!
   set smartcase               " unless uppercase letters are used in the regex.
   set hlsearch                " Highlight searches by default.
   set incsearch               " Incrementally search while typing a /regex
+
+  """ fugitive git bindings
+  nnoremap <space>ga :Git add %:p<CR><CR>
+  nnoremap <space>gs :Gstatus<CR>
+  nnoremap <space>gc :Gcommit -v -q<CR>
+  nnoremap <space>gt :Gcommit -v -q %:p<CR>
+  nnoremap <space>gd :Gdiff<CR>
+  nnoremap <space>ge :Gedit<CR>
+  nnoremap <space>gr :Gread<CR>
+  nnoremap <space>gw :Gwrite<CR><CR>
+  nnoremap <space>gl :silent! Glog<CR>:bot copen<CR>
+  nnoremap <space>gp :Ggrep<Space>
+  nnoremap <space>gm :Gmove<Space>
+  nnoremap <space>gb :Git branch<Space>
+  nnoremap <space>go :Git checkout<Space>
+  nnoremap <space>gps :Dispatch! git push<CR>
+  nnoremap <space>gpl :Dispatch! git pull<CR>
 
   """ Backup File
   if isdirectory('/tmp/vim/backupdir') == 0
@@ -503,4 +520,3 @@ filetype plugin indent on     " Required!
     endfunction
   """ }
 """ }
-
