@@ -331,3 +331,5 @@ fi
 #vimhelp ()    { vim -c "help $1" -c on -c "au! VimEnter *" }
 
 ## END OF FILE #################################################################
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

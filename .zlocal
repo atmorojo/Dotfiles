@@ -3,6 +3,7 @@ bindkey -v                                      # Vim-mode zsh
 stty -ixon                                      # Fix ctrl-s problem
 SAL_USE_VCLPLUGIN=gtk                           # LibreOffice engine
 export GEM_HOME=$(ruby -e 'print Gem.user_dir') # Set GEM_HOME for bundler
+export ANDROID_HOME=/opt/android-sdk            # Android SDK
 
 # Prompt {
 PROMPT="[%{$fg_no_bold[yellow]%}%?%{$reset_color%}]"
@@ -10,11 +11,12 @@ RPROMPT="%{$fg[red]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_no_bold[yellow]%}%
 # }
 
 # Add PATHs {
+GENYMOTION="${HOME}/build/genymotion/"
 RUBY="$(ruby -e 'print Gem.user_dir')/bin"
 COMPOSER="${HOME}/.composer/vendor/bin"
 NPM="${HOME}/.npm"
 
-PATH="$RUBY:$COMPOSER:$NPM/bin:$PATH"
+PATH="$GENYMOTION:$RUBY:$COMPOSER:$NPM/bin:$PATH"
 # }
 
 # Add ManPath {
@@ -30,3 +32,6 @@ if [[ $TERM != "linux" ]]; then
     fi
 fi
 # }
+
+# Fancy Zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

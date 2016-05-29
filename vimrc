@@ -12,7 +12,7 @@ Plug 'godlygeek/tabular'               " Text filtering and alignment
 " }
 
 " Theme {
-Plug 'chriskempson/vim-tomorrow-theme' " Tomorrow Themes
+Plug 'Slava/vim-colors-tomorrow' " Tomorrow Themes
 " }
 
 " General Programming {
@@ -35,6 +35,10 @@ Plug 'Shougo/neocomplete.vim'
 Plug 'SirVer/ultisnips'
 " }
 
+" Android {
+" Plug 'hsanson/vim-android'
+" }
+
 " HTML {
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'hail2u/vim-css3-syntax'
@@ -49,11 +53,11 @@ Plug 'spf13/PIV', {'for': 'php'}
 " }
 
 " Python {
-Plug 'jmcomets/vim-pony'  " Django Snippet
-Plug 'klen/python-mode'  " Pick either python-mode or pyflakes & pydoc
-Plug 'python_match.vim'
-Plug 'pythoncomplete'
-Plug 'yssource/python.vim'
+Plug 'jmcomets/vim-pony', {'for': 'py'}  " Django Snippet
+Plug 'klen/python-mode', {'for': 'py'}  " Pick either python-mode or pyflakes & pydoc
+Plug 'python_match.vim', {'for': 'py'}
+Plug 'pythoncomplete', {'for': 'py'}
+Plug 'yssource/python.vim', {'for': 'py'}
 " }
 
 " Ruby {
@@ -64,17 +68,21 @@ let g:rubycomplete_rails = 1
 " }
 
 " Misc {
-Plug 'cespare/vim-toml'
+" Plug 'cespare/vim-toml'
 Plug 'plasticboy/vim-markdown'
-Plug 'shime/livedown'
+" Plug 'shime/livedown'
 " }
+
+" FZF
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Unite, async, and unite tags support {
 Plug 'Shougo/neomru.vim'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimproc.vim', {'do' : 'make -f make_unix.mak' }
-" Plug 'Shougo/vimshell.vim'
-" Plug 'tsukkee/unite-tag'
+Plug 'Shougo/vimshell.vim'
+Plug 'tsukkee/unite-tag'
 " }
 
 " Deps {
@@ -86,8 +94,8 @@ endif
 
 call plug#end()
 
-syntax on                     " syntax highlighing
 filetype plugin indent on     " Required!
+syntax on                     " syntax highlighing
 
 """ Basic Settings {
 if has("multi_byte")
@@ -116,8 +124,10 @@ set mouse=a
 set t_ut=
 set t_Co=256
 
-colorscheme Tomorrow-Night-Bright
 set background=dark
+colorscheme tomorrow
+set cursorline              " have a line indicate the cursor location
+hi CursorLine ctermbg=232
 hi DiffText gui=underline guibg=red guifg=black
 hi LineNr ctermfg=grey ctermbg=232
 hi clear SignColumn ctermbg=232
@@ -138,7 +148,6 @@ au InsertLeave * set nopaste
 """ }
 
 """ Moving Around/Editing {
-set cursorline              " have a line indicate the cursor location
 set ruler                   " show the cursor position all the time
 set nostartofline           " Avoid moving cursor to BOL when jumping around
 set virtualedit=block       " Let cursor move past the last char in <C-v> mode
@@ -149,9 +158,9 @@ set backspace=2             " Allow backspacing over autoindent, EOL, and BOL
 set showmatch               " Briefly jump to a parent once it's balanced
 set wrap                    " Wrap text
 " set linebreak               " don't wrap text in the middle of a word
-set autoindent              " always set autoindenting on
-set copyindent              " copy indent from previous line
-set smartindent             " use smart indent if there is no indent file
+" set autoindent              " always set autoindenting on
+" set copyindent              " copy indent from previous line
+" set smartindent             " use smart indent if there is no indent file
 set tabstop=4               " <tab> inserts 'x' spaces
 set shiftwidth=4            " And an indent level is 'x' spaces wide.
 set softtabstop=4           " <BS> over an autoindent deletes all spaces.
@@ -238,7 +247,7 @@ inoremap jj <esc>
 
 """ Fast save
 inoremap <space>w <esc>:w!<cr>a
-noremap <space>w <esc>:w!<cr>a
+noremap <space>w <esc>:w!<cr>
 
 """ Quit window on <leader>q
 inoremap <space>q <esc>:q<cr>
@@ -379,8 +388,8 @@ inoremap <expr><Esc> pumvisible() ? "\<C-y>\<Esc>" : "\<Esc>"
 " <CR>: close popup and save indent
 inoremap <expr><CR> pumvisible() ? neocomplete#close_popup() : "\<CR>"
 " <TAB>: completion
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<TAB>"
+inoremap <expr><Tab>  pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr><S-Tab>  pumvisible() ? "\<C-p>" : "\<Tab>"
 " <BS>: close popup and delete backword char"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 " Close popup by <Space> and insert <Space>
@@ -415,6 +424,8 @@ let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_python_checkers = ['pylint2']
 let g:syntastic_php_checkers = ['php']
 let g:syntastic_quiet_messages = { "type": "style" }
+let g:syntastic_java_checkers=['javac']
+let g:syntastic_java_javac_config_file_enabled = 1
 """ }
 
 """ Tabular Mapping {
@@ -438,24 +449,23 @@ if exists(":Tabularize")
 endif
 """ }
 
+""" FZF Mapping {
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+nnoremap <silent> <leader>f :Files<CR>
+nnoremap <silent> <leader>a :Buffers<CR>
+nnoremap <silent> <leader>A :Windows<CR>
+nnoremap <silent> <leader>; :BLines<CR>
+nnoremap <silent> <leader>. :Lines<CR>
+nnoremap <silent> <leader>o :BTags<CR>
+nnoremap <silent> <leader>O :Tags<CR>
+nnoremap <silent> <leader>? :History<CR>
+""" }
+
 """ Tagbar Mapping {
 nnoremap <F3> :TagbarToggle<cr>
 inoremap <F3> <esc>:TagbarToggle<cr>i
 """ }
-
-""" Unite Setting {
-let g:unite_data_directory='~/.vim/.cache/unite'
-let g:unite_source_history_yank_enable = 1
-let g:unite_prompt='» '
-let g:unite_enable_start_insert=1
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
-nnoremap <space>p :<C-u>Unite -auto-resize -buffer-name=files   file_rec/async:!<cr>
-nnoremap <space>f :<C-u>Unite -auto-resize -buffer-name=files   file<cr>
-nnoremap <space>r :<C-u>Unite -auto-resize -buffer-name=mru     file_mru<cr>
-nnoremap <space>o :<C-u>Unite -auto-resize -buffer-name=outline outline<cr>
-nnoremap <space>y :<C-u>Unite -auto-resize -buffer-name=yank    history/yank<cr>
-nnoremap <space>e :<C-u>Unite -auto-resize -buffer-name=buffer  -quick-match buffer<cr>
 
 " Custom mappings for the unite buffer
 autocmd FileType unite call s:unite_settings()
@@ -486,14 +496,12 @@ map _ <Plug>(expand_region_shrink)
 """ Vim Indent Guide {
 let g:indent_guides_start_level = 2
 let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size = 1
 """ }
 
-""" Vim Multiple Cursor Mapping {
-let g:multi_cursor_next_key='<C-n>'
-let g:multi_cursor_prev_key='<C-p>'
-let g:multi_cursor_skip_key='<C-x>'
-let g:multi_cursor_quit_key='<Esc>'
-""" }
+""" Vim Android Setting {
+let g:gradle_path = "/usr"
+let g:android_sdk_path = "/opt/android-sdk"
 
 """ Web Setting {
 autocmd FileType html,php,css,sass,scss call WebSetting()
