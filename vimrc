@@ -1,21 +1,23 @@
-""" Stolen from Renodesper's vimrc https://github.com/renodesper/dotfiles/blob/master/.vimrc
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" My Vimrc. Mostly taken from Renodesper's                                   "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Plugins {
 set nocompatible
 call plug#begin(expand('~/.vim/bundle/'))
 
-" General {
+"" General
 Plug 'itchyny/lightline.vim'           " Statusline/tabline for Vim
 Plug 'junegunn/goyo.vim'               " Distraction free
-Plug 'Lokaltog/vim-easymotion'         " Vim motion on speed (Leader Leader w/f/s)
-Plug 'mhinz/vim-startify'              " Start screen
+Plug 'Lokaltog/vim-easymotion'         " Vim motion on speed (Leader w/f/s)
 Plug 'godlygeek/tabular'               " Text filtering and alignment
-" }
 
-" Theme {
-Plug 'Slava/vim-colors-tomorrow' " Tomorrow Themes
-" }
+"   Themes
+Plug 'Slava/vim-colors-tomorrow'       " Tomorrow Themes
+Plug 'tomasr/molokai'                  " Molokai Theme
+Plug 'w0ng/vim-hybrid'                 " Hybrid Theme
 
-" General Programming {
+"   General Programming
 Plug 'majutsushi/tagbar'               " Displays tags in a window, ordered by scope
 Plug 'tpope/vim-fugitive'              " Git integration
 Plug 'lambdalisue/vim-gista'           " Gist
@@ -24,128 +26,80 @@ Plug 'scrooloose/syntastic'            " Awesome syntax checking plugin
 Plug 'tpope/vim-commentary'            " Language-agnostic commenting plugin (gcc gcap gcgc)
 Plug 'airblade/vim-gitgutter'          " Git Gutter
 Plug 'tpope/vim-surround'              " Quoting/parenthesizing made simple (cs'` ds' ysiw] yssb ds{ds))
-Plug 'tpope/vim-repeat'                " Enable repeating supported plugin
+Plug 'tpope/vim-repeat'                " Enable repeating supported plugin with . (dot)
 Plug 'nathanaelkane/vim-indent-guides' " Visually displaying indent levels in code
 Plug 'justinmk/vim-syntax-extra'       " A collection of syntax definitions not yet shipped with stock vim
-" }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'                " Fuzzy file finder
 
-" Snippets & AutoComplete {
+"   Snippets & AutoComplete
 Plug 'honza/vim-snippets'
 Plug 'Shougo/neocomplete.vim'
 Plug 'SirVer/ultisnips'
-" }
 
-" Android {
-" Plug 'hsanson/vim-android'
-" }
-
-" HTML {
+"   HTML
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'hail2u/vim-css3-syntax'
-Plug 'rstacruz/sparkup'  " Awesome HAML to HTML by CTRL-E on HTML files
-Plug 'tpope/vim-haml'  " Vim runtime files for Haml, Sass, and SCSS
-" }
+Plug 'rstacruz/sparkup'                " Awesome HAML to HTML by CTRL-E on HTML files
+Plug 'tpope/vim-haml'                  " Vim runtime files for Haml, Sass, and SCSS
+Plug 'plasticboy/vim-markdown'
 
-" PHP {
+"   PHP
 Plug 'arnaud-lb/vim-php-namespace', {'for': 'php'}
 Plug 'beyondwords/vim-twig', {'for': 'php'}
 Plug 'spf13/PIV', {'for': 'php'}
-" }
 
-" Python {
-Plug 'jmcomets/vim-pony', {'for': 'py'}  " Django Snippet
-Plug 'klen/python-mode', {'for': 'py'}  " Pick either python-mode or pyflakes & pydoc
-Plug 'python_match.vim', {'for': 'py'}
-Plug 'pythoncomplete', {'for': 'py'}
-Plug 'yssource/python.vim', {'for': 'py'}
-" }
-
-" Ruby {
+"   Ruby
 Plug 'tpope/vim-rails'
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
-" }
-
-" Misc {
-" Plug 'cespare/vim-toml'
-Plug 'plasticboy/vim-markdown'
-" Plug 'shime/livedown'
-" }
-
-" FZF
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-
-" Unite, async, and unite tags support {
-Plug 'Shougo/neomru.vim'
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/vimproc.vim', {'do' : 'make -f make_unix.mak' }
-Plug 'Shougo/vimshell.vim'
-Plug 'tsukkee/unite-tag'
-" }
-
-" Deps {
-if executable('ag')
-    Plug 'rking/ag.vim'  " The Silver Searcher
-    let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
-endif
-" }
 
 call plug#end()
 
-filetype plugin indent on     " Required!
-syntax on                     " syntax highlighing
+filetype plugin indent on              " Required!
+syntax on                              " syntax highlighing
 
-""" Basic Settings {
+" }
+
+" Basic Settings {
 if has("multi_byte")
     set encoding=utf-8
     setglobal fileencoding=utf-8
 endif
-
-if has("gui_running")
-    set guifont=Source\ Code\ Pro\ 8
-    set guioptions-=m
-    set guioptions-=T
-endif
-
-""" Completion (OmniComplete)
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-set completeopt-=preview
 
 set number                    " Display line numbers
 set title                     " show title in console title bar
 set wildmenu                  " Menu completion in command mode on <Tab>
 set wildmode=full             " <Tab> cycles between all matching choices.
 set antialias
-set mouse=a
+set mouse=a                 " Activate mouse in terminal
+set noerrorbells            " Don't bell or blink
+au InsertLeave * set nopaste    " Disable paste mode when leaving insert mode
 
-""" Color and tmux
+"   GUI Related Settings
+if has("gui_running")
+    set guifont=Source\ Code\ Pro\ 8
+    set guioptions-=m
+    set guioptions-=T
+endif
+
+"   Appearances
 set t_ut=
 set t_Co=256
 
 set background=dark
-colorscheme tomorrow
+colorscheme hybrid
 set cursorline              " have a line indicate the cursor location
-hi CursorLine ctermbg=232
-hi DiffText gui=underline guibg=red guifg=black
-hi LineNr ctermfg=grey ctermbg=232
+"hi CursorLine ctermbg=232
+"hi DiffText gui=underline guibg=red guifg=black
+"hi LineNr ctermfg=grey ctermbg=235
 hi clear SignColumn ctermbg=232
-
-""" Don't bell or blink
-set noerrorbells
 
 """ Ignore these files when completing
 set wildignore+=.hg,.git,.svn,*.aux,*.out,*.toc,*.jpg,*.bmp,*.gif,*.png
 set wildignore+=*.jpeg,*.luacd,*.o,*.obj,*.exe,*.dll,*.manifest,*.pyc,*.spl
 set wildignore+=*.sw?,*.DS_Store?,*.class,eggs/**,*.egg-info/**,*/vendor/**
-
-""" Set paste mode toggle
-set pastetoggle=<F2>
-
-""" Disable paste mode when leaving insert mode
-au InsertLeave * set nopaste
-""" }
 
 """ Moving Around/Editing {
 set ruler                   " show the cursor position all the time
@@ -172,6 +126,10 @@ set colorcolumn=79          " highlight column 79 (where words will wrap)
 set nofoldenable            " turn off folding
 set splitright              " vsplit to right
 set splitbelow              " split to below
+
+""" Completion (OmniComplete)
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+set completeopt-=preview
 
 if &ft == 'css' || &ft == 'sass' || &ft == 'scss'
     set tabstop=2
@@ -227,6 +185,9 @@ endif
 """ change the leader to be a comma vs slash
 " let mapleader=","
 
+""" Set paste mode toggle
+set pastetoggle=<F2>
+
 """ Edit my vimrc file
 nnoremap <space>ev :e $MYVIMRC<cr>
 
@@ -244,20 +205,6 @@ cmap w!! w !sudo tee % >/dev/null
 
 """ Easy escaping to normal model
 inoremap jj <esc>
-
-""" Fast save
-inoremap <space>w <esc>:w!<cr>a
-noremap <space>w <esc>:w!<cr>
-
-""" Quit window on <leader>q
-inoremap <space>q <esc>:q<cr>
-noremap <space>q <esc>:q<cr>
-
-""" Easy window resize
-" nnoremap <silent> <C-S-h> <C-w><
-" nnoremap <silent> <C-S-j> <C-W>-
-" nnoremap <silent> <C-S-k> <C-W>+
-" nnoremap <silent> <C-S-l> <C-w>>
 
 """ Moving to first or last word in line
 nnoremap <S-h> ^
