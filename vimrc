@@ -11,11 +11,13 @@ Plug 'itchyny/lightline.vim'           " Statusline/tabline for Vim
 Plug 'junegunn/goyo.vim'               " Distraction free
 Plug 'Lokaltog/vim-easymotion'         " Vim motion on speed (Leader w/f/s)
 Plug 'godlygeek/tabular'               " Text filtering and alignment
+Plug 'scrooloose/nerdtree'             " NerdTree
 
 "   Themes
 Plug 'Slava/vim-colors-tomorrow'       " Tomorrow Themes
 Plug 'tomasr/molokai'                  " Molokai Theme
 Plug 'w0ng/vim-hybrid'                 " Hybrid Theme
+Plug 'morhetz/gruvbox'                 " Gruvbox Theme
 
 "   General Programming
 Plug 'majutsushi/tagbar'               " Displays tags in a window, ordered by scope
@@ -23,7 +25,7 @@ Plug 'tpope/vim-fugitive'              " Git integration
 Plug 'lambdalisue/vim-gista'           " Gist
 Plug 'Raimondi/delimitMate'            " Auto close scope (brackets, quotes, etc)
 Plug 'scrooloose/syntastic'            " Awesome syntax checking plugin
-Plug 'tpope/vim-commentary'            " Language-agnostic commenting plugin (gcc gcap gcgc)
+Plug 'scrooloose/nerdcommenter'
 Plug 'airblade/vim-gitgutter'          " Git Gutter
 Plug 'tpope/vim-surround'              " Quoting/parenthesizing made simple (cs'` ds' ysiw] yssb ds{ds))
 Plug 'tpope/vim-repeat'                " Enable repeating supported plugin with . (dot)
@@ -49,11 +51,39 @@ Plug 'arnaud-lb/vim-php-namespace', {'for': 'php'}
 Plug 'beyondwords/vim-twig', {'for': 'php'}
 Plug 'spf13/PIV', {'for': 'php'}
 
+" Typescript
+Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/vim-js-pretty-template'
+Plug 'jason0x43/vim-js-indent'
+
 "   Ruby
 Plug 'tpope/vim-rails'
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
 let g:rubycomplete_rails = 1
+
+" GoLang
+Plug 'fatih/vim-go'
+let g:go_fmt_command = "goimports"
+let g:go_term_mode = "split"
+let g:go_highlight_function = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+" Jedi
+Plug 'davidhalter/jedi-vim'
+autocmd FileType python setlocal omnifunc=jedi#completions
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#popup_select_first = 0
+
+if !exists('g:neocomplete#force_omni_input_patterns')
+        let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
 
 call plug#end()
 
@@ -73,7 +103,7 @@ set title                     " show title in console title bar
 set wildmenu                  " Menu completion in command mode on <Tab>
 set wildmode=full             " <Tab> cycles between all matching choices.
 set antialias
-set mouse=a                 " Activate mouse in terminal
+set mouse-=a                 " Activate mouse in terminal
 set noerrorbells            " Don't bell or blink
 au InsertLeave * set nopaste    " Disable paste mode when leaving insert mode
 
@@ -89,12 +119,13 @@ set t_ut=
 set t_Co=256
 
 set background=dark
-colorscheme hybrid
+colorscheme gruvbox
 set cursorline              " have a line indicate the cursor location
 "hi CursorLine ctermbg=232
 "hi DiffText gui=underline guibg=red guifg=black
 "hi LineNr ctermfg=grey ctermbg=235
 hi clear SignColumn ctermbg=232
+hi Normal ctermbg=233
 
 """ Ignore these files when completing
 set wildignore+=.hg,.git,.svn,*.aux,*.out,*.toc,*.jpg,*.bmp,*.gif,*.png
@@ -182,7 +213,7 @@ endif
 """ }
 
 """ Mapping {
-""" change the leader to be a comma vs slash
+"" change the leader to be a comma vs slash
 " let mapleader=","
 
 """ Set paste mode toggle
@@ -198,10 +229,10 @@ noremap <space>rv :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc rel
 noremap <space><space> :set rnu!<CR>
 
 """ sudo write this
-cmap W! w !sudo tee % >/dev/null
+cmap W! w !sudo tee % >/dev/null<cr>
 
 """ for when we forget to use sudo to open/edit a file
-cmap w!! w !sudo tee % >/dev/null
+cmap w!! w !sudo tee % >/dev/null<cr>
 
 """ Easy escaping to normal model
 inoremap jj <esc>
@@ -276,7 +307,7 @@ set tags=./tags;/,~/.vim/tags
 """ Easymotion Setting & Mapping {
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
-nmap f <Plug>(easymotion-s2)
+nmap <space>f <Plug>(easymotion-s2)
 """ }
 
 """ Gista Setting {
@@ -286,6 +317,10 @@ let g:gista#github_user = 'atmorojo'
 """ Goyo Mapping (distraction free) {
 nnoremap <F5> :Goyo<cr>
 inoremap <F5> <esc>:Goyo<cr>i
+""" }
+
+""" { NerdTree
+map <C-n> :NERDTreeToggle<CR>
 """ }
 
 """ NeoComplete Setting {
@@ -313,7 +348,7 @@ let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
@@ -414,20 +449,6 @@ nnoremap <F3> :TagbarToggle<cr>
 inoremap <F3> <esc>:TagbarToggle<cr>i
 """ }
 
-" Custom mappings for the unite buffer
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-    " Play nice with supertab
-    let b:SuperTabDisabled=1
-    " Enable navigation with control-j and control-k in insert mode
-    imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-    imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-    " Enable split with ease
-    imap <silent><buffer><expr> <C-s>     unite#do_action('split')
-    imap <silent><buffer><expr> <C-i>     unite#do_action('vsplit')
-endfunction
-""" }
-
 """ Vim CSS3 Syntax Setting {
 augroup VimCSS3Syntax
     autocmd!
@@ -436,24 +457,31 @@ augroup END
 """ }
 
 """ Vim Expand Region Setting {
-map + <Plug>(expand_region_expand)
-map _ <Plug>(expand_region_shrink)
+    map + <Plug>(expand_region_expand)
+    map _ <Plug>(expand_region_shrink)
 """ }
 
 """ Vim Indent Guide {
-let g:indent_guides_start_level = 2
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_guide_size = 1
+    let g:indent_guides_start_level = 2
+    let g:indent_guides_enable_on_vim_startup = 1
+    let g:indent_guides_guide_size = 1
+""" }
+
+""" Go Settings {
+    nmap gb :GoBuild<CR>
 """ }
 
 """ Vim Android Setting {
-let g:gradle_path = "/usr"
-let g:android_sdk_path = "/opt/android-sdk"
+    let g:gradle_path = "/usr"
+    let g:android_sdk_path = "/opt/android-sdk"
+""" }
 
 """ Web Setting {
 autocmd FileType html,php,css,sass,scss call WebSetting()
 function! WebSetting()
     set nowrap
 endfunction
+autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
 """ }
-""" }
+
+au BufNewFile,BufRead *.pro set filetype=make

@@ -1,5 +1,5 @@
 ! Colors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#include "colors/evabream"
+#include "colors/xdotshare"
 
 ! Xft settings ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ! xft.autohint:   1
@@ -71,7 +71,7 @@ URxvt.url-select.underline: true
 ! URxvt*cursorColor2:                   color
 ! URxvt*pointerColor:                   color
 ! URxvt*pointerColor2:                  color
-URxvt*borderColor:                     #101010
+! URxvt*borderColor:                     #101010
 ! URxvt*iconFile:                       file
 ! URxvt*intensityStyles:                boolean
 ! URxvt*inputMethod:                    name
@@ -87,9 +87,9 @@ URxvt*borderColor:                     #101010
 ! URxvt*transient-for:                  windowid
 ! URxvt*override-redirect:              boolean
 ! URxvt*hold:                           boolean
-! URxvt*externalBorder:                   10
-URxvt*internalBorder:                   5
-URxvt*lineSpace:                        3
+! URxvt*externalBorder:                 10
+URxvt*internalBorder:                   15
+! URxvt*lineSpace:                        3
 ! URxvt*letterSpace:                    number
 ! URxvt*skipBuiltinGlyphs:              boolean
 ! URxvt*pointerBlankDelay:              number
