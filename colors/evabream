@@ -1,8 +1,9 @@
-*background: #151B1A
+*background: #121212
 *foreground: #8FA388
 
 ! Alternate foreground
 !*foreground: #7E9982
+!*background: #151B1A
 
 *cursorColor: #9E6438
 

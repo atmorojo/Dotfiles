@@ -1,32 +1,14 @@
-! Colors ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#include "colors/xdotshare"
+#include "/home/atmorojo/.dotfiles/colors/evabream"
 
-! Xft settings ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-! xft.autohint:   1
-! Xft.dpi:        112
-! Xft.antialias:  true
-! Xft.rgba:       rgb
-! Xft.hinting:    true
-! Xft.hintstyle:  hintslight
-! xft.lcdfileter: lcddefault
-
-! Fonts ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-URxvt.font:                             -*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
-!URxvt.font:                             xft:Droid Sans Mono-8:antialias=true
-!URxvt.boldFont:                         xft:Droid Sans Mono-8:bold:antialias=true
-! URxvt.boldFont:                         -*-gohufont-bold-*-*-*-14-*-*-*-*-*-*-*
-! URxvt*italicFont:                     fontname
-! URxvt*boldItalicFont:                 fontname
-! URxvt.letterSpace:                      0
-
+URxvt.font:                            xft:Fantasque Sans Mono:size:12
 URxvt*scrollBar:                        False
 URxvt*cursorUnderline:                  True
-URxvt*cursorBlink:                      True
+URxvt*cursorBlink:                      False
 
 ! URxvt*perl-ext-common:                  string
-URxvt.perl-ext-common: default,url-select
+URxvt.perl-ext-common: default,url-select,bidi
 URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.launcher: /usr/bin/qutebrowser
 URxvt.url-select.underline: true
 
 ! URxvt*termName:                       string
@@ -82,7 +64,7 @@ URxvt.url-select.underline: true
 ! URxvt*iconName:                       string
 ! URxvt*saveLines:                      number
 ! URxvt*buffered:                       boolean
-! URxvt*depth:                          number
+URxvt*depth:                          32
 ! URxvt*visual:                         number
 ! URxvt*transient-for:                  windowid
 ! URxvt*override-redirect:              boolean
@@ -90,7 +72,7 @@ URxvt.url-select.underline: true
 ! URxvt*externalBorder:                 10
 URxvt*internalBorder:                   15
 ! URxvt*lineSpace:                        3
-! URxvt*letterSpace:                    number
+URxvt*letterSpace:                      -1
 ! URxvt*skipBuiltinGlyphs:              boolean
 ! URxvt*pointerBlankDelay:              number
 ! URxvt*backspacekey:                   string
@@ -130,3 +112,16 @@ URxvt*internalBorder:                   15
 ! URxvt*tabbar-bg:                      colour
 ! URxvt*tabbar-fg:                      colour
 ! URxvt*url-launcher:                   string
+
+Gdraw.Foreground: #ffffff
+Gdraw.Background: #000000
+Gdraw.GGadget.Box.BorderBrightest: #404040
+Gdraw.GGadget.Box.BorderBrighter: #606060
+Gdraw.GGadget.Box.BorderDarker: #808080
+Gdraw.GGadget.Box.BorderDarkest: #a0a0a0
+Gdraw.GGadget.Box.DisabledForeground: #e0e0e0
+Gdraw.GGadget.Box.DisabledBackground: #808080
+Gdraw.GGadget.Box.PressedBackground: #707070
+fontforge.CharView.WidthColor: #ffffff
+fontforge.CharView.TransformOriginColor: #ffffff
+fontforge.CharView.ForegroundOutlineColor: #ffffff
