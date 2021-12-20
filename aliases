@@ -16,3 +16,5 @@ xs () {
       --preview-window=right:66%:wrap |
       xargs -ro xi
 }
+
+alias todo='vim ~/Markor/todo.txt'
