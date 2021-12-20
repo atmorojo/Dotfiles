@@ -2,15 +2,27 @@
 " Plugins
 " ============================
 set nocompatible
-call plug#begin(expand('~/.vim/bundle/'))
+call plug#begin(expand('~/.config/nvim/bundle/'))
 
 " General
 Plug 'itchyny/lightline.vim'           " Statusline/tabline for Vim
+Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'junegunn/goyo.vim'               " Distraction free
 Plug 'reikim/mdwa.vim'                  " The Most Dangerous Writing App
+Plug 'chrisbra/unicode.vim'             " Easily insert unicode in vim
+Plug 'sheerun/vim-polyglot'
+Plug 'jiangmiao/auto-pairs'
+Plug 'dense-analysis/ale'
+Plug 'preservim/nerdcommenter'
+Plug 'shougo/deoplete.nvim' 
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'lambdalisue/suda.vim'
+Plug 'freitass/todo.txt-vim'
+Plug 'akretion/vim-odoo-snippets'
 
 " Themes
-Plug 'morhetz/gruvbox'                 " Gruvbox Theme
+Plug 'dylanaraps/wal.vim'
 
 " General Programming
 Plug 'airblade/vim-gitgutter'          " Git Gutter
@@ -39,7 +51,6 @@ set number                      " Display line numbers
 set title                       " show title in console title bar
 set wildmenu                    " Menu completion in command mode on <Tab>
 set wildmode=full               " <Tab> cycles between all matching choices.
-set antialias
 set mouse-=a                    " Activate mouse in terminal
 set noerrorbells                " Don't bell or blink
 au InsertLeave * set nopaste    " Disable paste mode when leaving insert mode
@@ -55,11 +66,11 @@ endif
 set t_ut=
 set t_Co=256
 
-set background=dark
-colorscheme gruvbox
-set cursorline              " have a line indicate the cursor location
-hi clear SignColumn ctermbg=232
-hi Normal ctermbg=233
+colorscheme wal
+set bg=dark
+"set cursorline              " have a line indicate the cursor location
+"hi clear SignColumn ctermbg=232
+"hi Normal ctermbg=233
 
 """ Ignore these files when completing
 set wildignore+=.hg,.git,.svn,*.aux,*.out,*.toc,*.jpg,*.bmp,*.gif,*.png
@@ -201,6 +212,7 @@ let g:sparkupExecuteMapping = '<leader>e'
 """ FZF Mapping {
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
+nnoremap <silent> <leader>g :GFiles --cached --others --exclude-standar<CR>
 nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>A :Windows<CR>
@@ -237,3 +249,31 @@ au BufNewFile,BufRead *.pro set filetype=make
 " UltiSnips Settings
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+
+" Lightline setting
+let g:lightline = {}
+let g:lightline.colorscheme = 'gruvbox'
+let g:lightline.separator = { 'left': '', 'right': '' }
+let g:lightline.subseparator = { 'left': '', 'right': '' }
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#source('ultisnips', 'matchers', ['matcher_fuzzy'], 'ale', 'dup', v:true)
+
+"Ale
+let g:ale_fixers = {
+      \ 'javascript' : ['prettier'],
+      \ 'css' : ['prettier'],
+      \ 'typescript' : ['prettier'],
+      \ 'python' : ['flake8'],
+      \}
+
+let g:ale_linters = {
+      \ 'javascript' : ['prettier'],
+      \ 'css' : ['prettier'],
+      \ 'typescript' : ['prettier'],
+      \ 'python' : ['flake8'],
+      \}
+
+" Suda
+let g:suda_smart_edit = 1
