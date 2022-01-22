@@ -20,6 +20,7 @@ Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'lambdalisue/suda.vim'
 Plug 'freitass/todo.txt-vim'
 Plug 'akretion/vim-odoo-snippets'
+Plug 'soywod/himalaya', {'rtp': 'vim'}
 
 " Themes
 Plug 'dylanaraps/wal.vim'
