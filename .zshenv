@@ -1,7 +1,23 @@
-# ZSH Environment related settings
+#
+# .zshenv - Zsh environment file, loaded always.
+#
+# NOTE: .zshenv has to live at ~/.zshenv, not in $ZDOTDIR! You can get around this by
+# symlinking .zshenv from your $ZDOTDIR: `ln -sf $ZDOTDIR/.zshenv ~/.zshenv`
+#
 
-export PATH="$PATH:$HOME/bin:$HOME/go/bin:$HOME/.node_modules/bin:$HOME/.gem/ruby/2.6.0/bin:$HOME/.local/bin:$HOME/.composer/vendor/bin:$HOME/.config/yarn/global"
-export SUDO_EDIT="/usr/bin/nvim"
+#
+# ZDOTDIR
+#
 
-export npm_config_prefix=~/.node_modules
-source "$HOME/.cargo/env"
+export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-${HOME}/.config}
+setxkbmap -model pc104 -layout us,ara -option grp:alt_caps_toggle;
+#
+# .zprofile
+#
+
+# We use .zprofile for everything else (load for non-login, non-interactive shells).
+if [[ ( "$SHLVL" -eq 1 && ! -o LOGIN  ) && -s "${ZDOTDIR:-$HOME}/.zprofile"  ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprofile"
+fi
+
+# vim: ft=zsh sw=2 ts=2 et

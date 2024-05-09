@@ -17,4 +17,8 @@ xs () {
       xargs -ro xi
 }
 
-alias todo='vim ~/Markor/todo.txt'
+alias ,todo='vim ~/Markor/todo.txt'
+alias ,ta='tmux attach'
+alias ,mpvmusic='mpv --no-video'
+alias ,fixtime='sudo vsv stop ntpd; sudo ntpdate 216.239.35.0'
+alias ,change_layout='setxkbmap -model 104 -layout us,ara -option grp:alt_caps_toggle'

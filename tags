@@ -1,0 +1,79 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/atmorojo/.dotfiles/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+;	vimrc	/^nnoremap ; :$/;"	m
+<	vimrc	/^vnoremap < <gv$/;"	m
+<F5>	vimrc	/^inoremap <F5> <esc>:Goyo<cr>i$/;"	m
+<F5>	vimrc	/^nnoremap <F5> :Goyo<cr>$/;"	m
+<S-KInsert>	vimrc	/^inoremap <S-KInsert> <Esc>"+pa$/;"	m
+<S-KInsert>	vimrc	/^nnoremap <S-KInsert> "+p$/;"	m
+<S-h>	vimrc	/^nnoremap <S-h> ^$/;"	m
+<S-l>	vimrc	/^nnoremap <S-l> \$$/;"	m
+<c-h>	vimrc	/^nnoremap <c-h> <c-w>h$/;"	m
+<c-j>	vimrc	/^nnoremap <c-j> <c-w>j$/;"	m
+<c-k>	vimrc	/^nnoremap <c-k> <c-w>k$/;"	m
+<c-l>	vimrc	/^nnoremap <c-l> <c-w>l$/;"	m
+<leader>.	vimrc	/^nnoremap <silent> <leader>. :Lines<CR>$/;"	m
+<leader>;	vimrc	/^nnoremap <silent> <leader>; :BLines<CR>$/;"	m
+<leader><tab>	vimrc	/^nmap <leader><tab> <plug>(fzf-maps-n)$/;"	m
+<leader>?	vimrc	/^nnoremap <silent> <leader>? :History<CR>$/;"	m
+<leader>A	vimrc	/^nnoremap <silent> <leader>A :Windows<CR>$/;"	m
+<leader>O	vimrc	/^nnoremap <silent> <leader>O :Tags<CR>$/;"	m
+<leader>b	vimrc	/^nnoremap <silent> <leader>b :Buffers<CR>$/;"	m
+<leader>ev	vimrc	/^nnoremap <leader>ev :e $MYVIMRC<cr>$/;"	m
+<leader>f	vimrc	/^nnoremap <silent> <leader>f :Files<CR>$/;"	m
+<leader>g	vimrc	/^nnoremap <silent> <leader>g :GFiles --cached --others --exclude-standar<CR>$/;"	m
+<leader>no	vimrc	/^nnoremap <leader>no :tab drop .\/notes.md<CR>$/;"	m
+<leader>o	vimrc	/^nnoremap <silent> <leader>o :BTags<CR>$/;"	m
+<leader>rv	vimrc	/^noremap <leader>rv :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<cr>$/;"	m
+>	vimrc	/^vnoremap > >gv$/;"	m
+Gimp	spectrwm.conf	/^quirk[Gimp:gimp] = WS[5]$/;"	k
+W!	vimrc	/^cmap W! w !sudo tee % >\/dev\/null<cr>$/;"	m
+autorun	spectrwm.conf	/^autorun                 = ws[1]:alacritty$/;"	k
+autorun	spectrwm.conf	/^autorun                 = ws[1]:~\/bin\/startup$/;"	k
+autorun	spectrwm.conf	/^autorun                 = ws[2]:firefox$/;"	k
+autorun	spectrwm.conf	/^autorun                 = ws[3]:Thunar$/;"	k
+bar_action	spectrwm.conf	/^bar_action              = ~\/bin\/statusbar$/;"	k
+bar_action_expand	spectrwm.conf	/^bar_action_expand       = 1$/;"	k
+bar_border	spectrwm.conf	/^bar_border              = black$/;"	k
+bar_border_width	spectrwm.conf	/^bar_border_width	= 6$/;"	k
+bar_color	spectrwm.conf	/^bar_color               = black,rgb:A9\/AF\/0D$/;"	k
+bar_delay	spectrwm.conf	/^bar_delay               = 1$/;"	k
+bar_enabled	spectrwm.conf	/^bar_enabled		= 1$/;"	k
+bar_font	spectrwm.conf	/^bar_font		= BlexMono NF:pixelsize=12$/;"	k
+bar_font_color	spectrwm.conf	/^bar_font_color          = white,black,rgb:A9\/AF\/0D,red$/;"	k
+bar_font_color_selected	spectrwm.conf	/^bar_font_color_selected = rgb:A9\/AF\/0D$/;"	k
+bar_format	spectrwm.conf	/^bar_format              = +|T+@bg=1;+@fg=1;+_13_D+|L+W +|C%a, %e %b %Y — %R+10< +|R+A$/;"	k
+border_width	spectrwm.conf	/^border_width		= 4$/;"	k
+color_focus	spectrwm.conf	/^color_focus		= white$/;"	k
+color_focus_maximized	spectrwm.conf	/^color_focus_maximized	= black$/;"	k
+color_unfocus	spectrwm.conf	/^color_unfocus		= black$/;"	k
+color_unfocus_maximized	spectrwm.conf	/^color_unfocus_maximized	= rgb:88\/88\/88$/;"	k
+disable_border	spectrwm.conf	/^disable_border		= 0     # Remove window border when bar is disabled and there is only one window/;"	k
+g:apc_enable_ft	vimrc	/^let g:apc_enable_ft = { '*':1 }$/;"	v
+g:lightline	vimrc	/^let g:lightline = {}$/;"	v
+g:lightline	vimrc	/^let g:lightline.colorscheme = 'gruvbox'$/;"	v
+g:lsc_auto_map	vimrc	/^let g:lsc_auto_map = v:true$/;"	v
+g:lsc_enable_autocomplete	vimrc	/^let g:lsc_enable_autocomplete  = v:true$/;"	v
+g:lsc_server_commands	vimrc	/^let g:lsc_server_commands = {$/;"	v
+g:suda_smart_edit	vimrc	/^let g:suda_smart_edit = 1$/;"	v
+g:user_emmet_install_global	vimrc	/^let g:user_emmet_install_global = 0$/;"	v
+jj	vimrc	/^inoremap jj <esc>$/;"	m
+modkey	spectrwm.conf	/^modkey                  = Mod4$/;"	k
+name	spectrwm.conf	/^name                    = ws[1]: Term$/;"	k
+name	spectrwm.conf	/^name                    = ws[2]: Web$/;"	k
+name	spectrwm.conf	/^name                    = ws[3]: Files$/;"	k
+name	spectrwm.conf	/^name                    = ws[4]: Work$/;"	k
+name	spectrwm.conf	/^name                    = ws[5]: Fun$/;"	k
+region_padding	spectrwm.conf	/^region_padding	        = 15$/;"	k
+tile_gap	spectrwm.conf	/^tile_gap		= 15 $/;"	k
+version	fonts.conf	/^<?xml version='1.0'?>$/;"	k
+workspace_limit	spectrwm.conf	/^workspace_limit	        = 5$/;"	k
