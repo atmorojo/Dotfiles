@@ -10,14 +10,16 @@ Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-git'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-surround'
 
 "" General
 Plug 'itchyny/lightline.vim'           " Statusline/tabline for Vim
-Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'junegunn/goyo.vim'               " Distraction free
-Plug 'reikim/mdwa.vim'                  " The Most Dangerous Writing App
+Plug 'reikim/mdwa.vim'                 " The Most Dangerous Writing App
+Plug 'easymotion/vim-easymotion'
 Plug 'sheerun/vim-polyglot'
-Plug 'jiangmiao/auto-pairs'
+Plug 'cohama/lexima.vim'
 Plug 'freitass/todo.txt-vim'
 Plug 'soywod/himalaya', {'rtp': 'vim'}
 Plug 'ludovicchabant/vim-gutentags'
@@ -29,7 +31,7 @@ Plug 'prettier/vim-prettier', {
       \ 'for': ['javascript', 'css', 'scss', 'json', 'graphql', 'markdown', 'yaml', 'html'] }
 
 " Themes
-Plug 'dylanaraps/wal.vim'
+Plug 'dylanaraps/wal' " or other package manager
 
 " General Programming
 Plug 'airblade/vim-gitgutter'          " Git Gutter
@@ -49,8 +51,9 @@ set mouse-=a                    " Activate mouse in terminal
 set noerrorbells                " Don't bell or blink
 au InsertLeave * set nopaste    " Disable paste mode when leaving insert mode
 
+" set termguicolors     " enable true colors support
+set background=dark
 colorscheme wal
-set bg=dark
 
 """ Moving Around/Editing {
 set nostartofline           " Avoid moving cursor to BOL when jumping around
@@ -118,6 +121,8 @@ nnoremap <F5> :Goyo<cr>
 inoremap <F5> <esc>:Goyo<cr>i
 """ }
 
+nnoremap <space><space> :nohlsearch<cr>
+
 """ Emmet Setting {
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
@@ -138,16 +143,19 @@ nnoremap <silent> <leader>? :History<CR>
 """ }
 
 " Lightline setting
-let g:lightline = {}
-let g:lightline.colorscheme = 'gruvbox'
-"let g:lightline.separator = { 'left': '', 'right': '' }
-"let g:lightline.subseparator = { 'left': '', 'right': '' }
+let g:lightline = {
+            \ 'colorscheme' : 'rosepine',
+            \ 'separator' : { 'left': '', 'right': '' },
+            \ 'subseparator' : { 'left': '', 'right': '' },
+            \ }
 
-" Suda
-let g:suda_smart_edit = 1
-
+" LSC Settings
 let g:lsc_server_commands = {
-            \ 'php': 'phpactor language-server -vvv' 
+            \ 'php': 'phpactor language-server -vvv',
+            \ 'python': 'pylsp',
+            \ 'elm': 'elm-language-server',
+            \ 'typescript': 'javascript-typescript-stdio',
+            \ 'javascript': 'javascript-typescript-stdio'
             \ }
 let g:lsc_auto_map = v:true
 let g:lsc_enable_autocomplete  = v:true
@@ -158,6 +166,7 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
 nnoremap <leader>no :tab drop ./notes.md<CR>
+nnoremap <leader>to :tab drop ./todo.txt<CR>
 
 " enable this plugin for filetypes, '*' for all files.
 let g:apc_enable_ft = { '*':1 }
